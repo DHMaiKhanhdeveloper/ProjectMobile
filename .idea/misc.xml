@@ -3,7 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/deadline/Project/part8/app/src/main/res/drawable-v24/background_doctor.xml" value="0.1" />
+        <entry key="..\:/deadline/Project/part8/app/src/main/res/drawable-v24/background_patient.xml" value="0.1" />
         <entry key="..\:/deadline/Project/part8/app/src/main/res/drawable-v24/ic_side_bg.xml" value="0.1" />
+        <entry key="..\:/deadline/Project/part8/app/src/main/res/layout/activity_background.xml" value="0.1" />
         <entry key="..\:/deadline/Project/part8/app/src/main/res/layout/activity_login.xml" value="0.1" />
         <entry key="..\:/deadline/Project/part8/app/src/main/res/layout/activity_main.xml" value="0.1734375" />
         <entry key="..\:/deadline/Project/part8/app/src/main/res/layout/activity_register.xml" value="0.1734375" />

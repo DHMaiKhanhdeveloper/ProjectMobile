@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background2"
+    tools:context=".MainActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginBottom="40dp">
+
+            <com.example.myapplication.custom.LobsterTwo_Italic
+                android:layout_width="1100px"
+                android:layout_height="300px"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="150px"
+                android:layout_marginTop="300px"
+                android:text="Please confirm your identity"
+                android:textColor="@color/black"
+                android:textSize="30dp"
+                android:textStyle="bold" />
+
+            <RelativeLayout
+                android:layout_width="300dp"
+                android:layout_height="100dp"
+                android:layout_alignParentBottom="true"
+                android:layout_centerInParent="true"
+                android:background="@drawable/background_doctor">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="4dp"
+                    android:src="@drawable/background_doctor"
+                    app:tint="#fff"
+                    android:id="@+id/imageView_doctor"/>
+
+                <RelativeLayout
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/background_doctor">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:padding="1dp"
+                        android:src="@drawable/doctor">
+
+                    </ImageView>
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="70dp"
+                    android:gravity="center"
+                    android:text="DOCTOR"
+                    android:textColor="#000"
+                    android:textSize="30sp"
+                    android:textStyle="bold" />
+
+
+            </RelativeLayout>
+        </RelativeLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_marginTop="40dp"
+            android:layout_weight="1">
+
+            <RelativeLayout
+                android:layout_width="300dp"
+                android:layout_height="100dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerInParent="true"
+                android:background="@drawable/background_patient">
+
+                <ImageView
+                    android:id="@+id/imageView_patient"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="4dp"
+                    android:src="@drawable/background_patient"
+                    app:tint="#fff" />
+
+                <RelativeLayout
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/background_patient">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:padding="1dp"
+                        android:src="@drawable/patient">
+
+                    </ImageView>
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="70dp"
+                    android:gravity="center"
+                    android:text="PATIENT"
+                    android:textColor="#000"
+                    android:textSize="25sp"
+                    android:textStyle="bold" />
+
+
+            </RelativeLayout>
+        </RelativeLayout>
+    </LinearLayout>
+</LinearLayout>
