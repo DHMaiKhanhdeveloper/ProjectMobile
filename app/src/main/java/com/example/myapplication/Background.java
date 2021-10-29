@@ -27,7 +27,8 @@ public class Background extends AppCompatActivity {
         imageViewPatient.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(Background.this,MainActivity.class);
+                startActivity(intent);
             }
         });
 
