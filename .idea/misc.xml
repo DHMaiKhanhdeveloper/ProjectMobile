@@ -9,12 +9,18 @@
         <entry key="..\:/deadline/Project/part8/app/src/main/res/drawable-v24/ic_baseline_calendar_today_24.xml" value="0.1" />
         <entry key="..\:/deadline/Project/part8/app/src/main/res/drawable-v24/ic_side_bg.xml" value="0.1" />
         <entry key="..\:/deadline/Project/part8/app/src/main/res/layout/activity_background.xml" value="0.1" />
-        <entry key="..\:/deadline/Project/part8/app/src/main/res/layout/activity_information_patient.xml" value="0.1734375" />
+        <entry key="..\:/deadline/Project/part8/app/src/main/res/layout/activity_background_doctor.xml" value="0.1" />
+        <entry key="..\:/deadline/Project/part8/app/src/main/res/layout/activity_information_patient.xml" value="0.2" />
         <entry key="..\:/deadline/Project/part8/app/src/main/res/layout/activity_information_person.xml" value="0.264" />
-        <entry key="..\:/deadline/Project/part8/app/src/main/res/layout/activity_login.xml" value="0.1" />
+        <entry key="..\:/deadline/Project/part8/app/src/main/res/layout/activity_login.xml" value="0.152" />
         <entry key="..\:/deadline/Project/part8/app/src/main/res/layout/activity_main.xml" value="0.1734375" />
-        <entry key="..\:/deadline/Project/part8/app/src/main/res/layout/activity_register.xml" value="0.1734375" />
+        <entry key="..\:/deadline/Project/part8/app/src/main/res/layout/activity_register.xml" value="0.264" />
         <entry key="..\:/deadline/Project/part8/app/src/main/res/layout/activity_splash.xml" value="0.1" />
+        <entry key="..\:/deadline/Project/part8/app/src/main/res/layout/activity_splash_background.xml" value="0.1" />
+        <entry key="..\:/deadline/Project/part8/app/src/main/res/layout/fragment_doctor.xml" value="0.1" />
+        <entry key="..\:/deadline/Project/part8/app/src/main/res/layout/fragment_list_patient.xml" value="0.1" />
+        <entry key="..\:/deadline/Project/part8/app/src/main/res/layout/fragment_logout.xml" value="0.1" />
+        <entry key="..\:/deadline/Project/part8/app/src/main/res/menu/menu_bottom_navigation.xml" value="0.1" />
       </map>
     </option>
   </component>

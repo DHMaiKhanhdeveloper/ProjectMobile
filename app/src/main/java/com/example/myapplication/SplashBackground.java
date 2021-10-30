@@ -22,13 +22,13 @@ public class SplashBackground extends AppCompatActivity {
         lottieAnimationView = findViewById(R.id.lottie_layer_name);
         BackgroundSplash = findViewById(R.id.background_splash);
 
-        lottieAnimationView.animate().translationY(-2500).setDuration(1000).setStartDelay(5000);
-        BackgroundSplash.animate().translationY(1500).setDuration(1000).setStartDelay(5000);
+        lottieAnimationView.animate().translationY(-2500).setDuration(1000).setStartDelay(2000);
+        BackgroundSplash.animate().translationY(1500).setDuration(1000).setStartDelay(2000);
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
                 startActivity(new Intent(SplashBackground.this,Background.class));
             }
-        },5000);
+        },2000);
     }
 }

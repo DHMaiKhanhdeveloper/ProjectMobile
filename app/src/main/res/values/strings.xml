@@ -4,4 +4,7 @@
     <string name="login_password_hint">Password</string>
     <string name="login_confirm_password_hint">Confirm password</string>
     <string name="date">Date of birth (dd/mm/yyyy)</string>
+    <string name="bottom_doctor">Information doctor</string>
+    <string name="bottom_list_patient">List Patient</string>
+    <string name="bottom_logout">Logout</string>
 </resources>

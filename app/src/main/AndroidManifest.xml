@@ -17,9 +17,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".SplashBackground"
+            android:exported="true" />
+        <activity
             android:name=".InformationPatient"
             android:exported="true"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Background"
             android:exported="true"
@@ -41,7 +44,7 @@
             android:exported="true"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".SplashBackground"
+            android:name=".BackgroundDoctor"
             android:exported="true"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
