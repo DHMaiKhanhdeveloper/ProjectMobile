@@ -19,4 +19,6 @@
     <color name="whiteTextColor">#fff</color>
     <color name="primaryTextColor">#11CFC5</color>
     <color name="yellow">#E1F610</color>
+    <color name="main">#0C5691</color>
+    <color name="main1">#BCC3C9</color>
 </resources>

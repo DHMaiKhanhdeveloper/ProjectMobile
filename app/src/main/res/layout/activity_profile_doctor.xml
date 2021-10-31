@@ -36,6 +36,7 @@
             android:textStyle="bold"
             android:textSize="40dp"
             android:layout_centerHorizontal="true"/>
+
         <LinearLayout
             android:id="@+id/background_form"
             android:layout_width="match_parent"
@@ -44,6 +45,20 @@
             android:orientation="horizontal">
 
         </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_marginTop="380dp"
+            android:background="@color/main1" />
+        <Button
+            android:layout_width="300dp"
+            android:layout_height="70dp"
+            android:background="@drawable/background_patientp3"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="480dp"
+            android:text="Chỉnh sửa"
+            android:textSize="30dp"/>
     </RelativeLayout>
 
 </RelativeLayout>

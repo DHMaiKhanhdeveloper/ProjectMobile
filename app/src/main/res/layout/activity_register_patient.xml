@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RegisterActivity"
+    android:background="@color/light_gray">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:layout_margin="10dp"
+        android:background="@color/white">
+            <TextView
+                android:id="@+id/textView_register_head"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Personal Information"
+                android:textSize="30dp"
+                android:textAlignment="center"
+                android:textStyle="bold"
+                android:textColor="@color/main"/>
+        <TextView
+            android:id="@+id/textview_register_full_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView_register_head"
+            android:layout_marginTop="10dp"
+            android:padding="6dp"
+            android:text="Full Name"
+            android:textColor="#555555"
+            app:helperText="Required*"
+            app:helperTextTextColor="@color/teal_200"
+            android:textSize="16sp" />
+
+        <EditText
+            android:drawableStart="@drawable/ic_baseline_person_24"
+            android:id="@+id/editText_register_full_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textview_register_full_name"
+            android:background="@drawable/border1"
+            android:hint="Enter your full name"
+            android:inputType="textPersonName"
+            android:padding="6dp"
+            android:textSize="16sp" />
+        <TextView
+            android:id="@+id/textview_register_dob"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/editText_register_full_name"
+            android:layout_marginTop="10dp"
+            android:padding="6dp"
+            android:text="Date off Birth (dd/mm/yyyy)"
+            android:textColor="#555555"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/editText_register_dob"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textview_register_dob"
+            android:background="@drawable/border1"
+            android:focusable="false"
+            android:hint="Select your date of birth (dd/mm/yyyy)"
+            android:inputType="date"
+            android:padding="6dp"
+            android:textSize="16sp"
+            android:drawableStart="@drawable/ic_baseline_calendar_today_24"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textview_register_gender"
+            android:layout_below="@+id/editText_register_dob"
+            android:text="Gender"
+            android:textColor="#555555"
+            android:textSize="16sp"
+            android:padding="6dp"
+            android:layout_marginTop="10dp" />
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@+id/textview_register_gender"
+            android:id="@+id/radio_group_register_gender">
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/radio_female"
+                android:text="Female"
+                android:textSize="16sp"
+                android:textColor="#555555"/>
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/radio_male"
+                android:text="Male"
+                android:layout_marginLeft="30dp"
+                android:textSize="16sp"
+                android:textColor="#555555"/>
+        </RadioGroup>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textview_register_mobile"
+            android:layout_below="@+id/radio_group_register_gender"
+            android:text="Mobile"
+            android:textColor="#555555"
+            android:textSize="16sp"
+            android:padding="6dp"
+            android:layout_marginTop="10dp" />
+
+        <EditText
+            android:id="@+id/editText_register_mobile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textview_register_mobile"
+            android:background="@drawable/border1"
+            android:hint="Enter your mobile "
+            android:inputType="phone"
+            android:padding="6dp"
+            android:textSize="16sp"
+            android:drawableStart="@drawable/ic_baseline_phone_android_24"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textview_address"
+            android:layout_below="@+id/editText_register_mobile"
+            android:text="CMT/CCCD/Passport"
+            android:textColor="#555555"
+            android:textSize="16sp"
+            android:padding="6dp"
+            android:layout_marginTop="10dp" />
+
+        <EditText
+            android:id="@+id/editText_register_passport"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textview_address"
+            android:background="@drawable/border1"
+            android:hint="Enter your CMT/CCCD/Passport "
+            android:inputType="textPassword"
+            android:padding="6dp"
+            android:textSize="16sp"
+            android:drawableStart="@drawable/passportp2"/>
+        <TextView
+            android:id="@+id/textview_register_adrress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/editText_register_passport"
+            android:layout_marginTop="10dp"
+            android:padding="6dp"
+            android:text="Address"
+            android:textColor="#555555"
+            android:textSize="16sp" />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/editText_address"
+            android:hint="Enter your Address"
+            android:inputType="textEmailAddress"
+            android:textSize="16sp"
+            android:padding="6dp"
+            android:layout_below="@+id/textview_register_adrress"
+            android:background="@drawable/border1"
+            android:drawableStart="@drawable/map"/>
+        <TextView
+            android:id="@+id/textview_register_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/editText_address"
+            android:layout_marginTop="10dp"
+            android:padding="6dp"
+            android:text="Email"
+            android:textColor="#555555"
+            android:textSize="16sp" />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/editText_register_email"
+            android:hint="Enter your email"
+            android:inputType="textEmailAddress"
+            android:textSize="16sp"
+            android:padding="6dp"
+            android:layout_below="@+id/textview_register_email"
+            android:background="@drawable/border1"
+            android:drawableStart="@drawable/ic_baseline_email_24"/>
+            <TextView
+
+                android:id="@+id/health_monitoring"
+                android:layout_below="@+id/editText_register_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:text="Health Monitoring"
+                android:textColor="#555555"
+                android:textSize="16sp" />
+        <CheckBox
+
+            android:id="@+id/checkbox_sot"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/health_monitoring"
+            android:layout_marginLeft="20dp"
+            android:text="Sốt"
+            android:textColor="#555555"
+            android:textSize="16sp" />
+        <CheckBox
+            android:id="@+id/checkbox_ho"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:layout_below="@+id/health_monitoring"
+            android:layout_toRightOf="@+id/checkbox_sot"
+            android:text="Ho"
+            android:textColor="#555555"
+            android:textSize="16sp"
+             />
+        <CheckBox
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:layout_below="@+id/health_monitoring"
+            android:layout_toRightOf="@+id/checkbox_ho"
+            android:text="Khó thở"
+            android:textColor="#555555"
+            android:textSize="16sp" />
+        <CheckBox
+
+            android:id="@+id/checkbox_dau_nguoi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/checkbox_sot"
+            android:text="Đau người, mệt mỏi "
+            android:textColor="#555555"
+            android:textSize="16sp" />
+        <CheckBox
+
+            android:id="@+id/checkbox_suc_khoe_tot"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/checkbox_ho"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/checkbox_dau_nguoi"
+            android:text="Sức khoẻ tốt "
+            android:textColor="#555555"
+            android:textSize="16sp" />
+        <Button
+            android:id="@+id/button_camera"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_baseline_camera_alt_24"
+            android:backgroundTint="@color/teal_200"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/checkbox_suc_khoe_tot"/>
+        <ImageView
+            android:id="@+id/image_camera"
+            android:layout_below="@+id/button_camera"
+            android:layout_width="300dp"
+            android:layout_height="100dp"
+            android:layout_centerHorizontal="true"
+            android:background="@color/teal_200"/>
+        <CheckBox
+            android:id="@+id/Checkbox_CheckAgainst"
+            android:textStyle="bold"
+            android:textColor="#555555"
+            android:textSize="16sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/image_camera"
+            android:text="Tôi cam kết các thông tin khai là đúng sự thât và đồng ý với điều khoản sử dụng"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/button_register"
+            android:layout_below="@+id/Checkbox_CheckAgainst"
+            android:textStyle="bold"
+            android:background="@drawable/background_patientp2"
+            android:layout_marginLeft="70dp"
+            android:layout_marginRight="70dp"
+            android:layout_marginTop="10dp"
+            android:text="Register"/>
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/progressBar"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:elevation="10dp"
+            android:visibility="gone"/>
+    </RelativeLayout>
+
+</ScrollView>

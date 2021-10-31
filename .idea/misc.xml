@@ -5,16 +5,28 @@
       <map>
         <entry key="..\:/deadline/Project/part8/app/src/main/res/drawable-v24/background_doctor.xml" value="0.1" />
         <entry key="..\:/deadline/Project/part8/app/src/main/res/drawable-v24/background_patient.xml" value="0.1" />
+        <entry key="..\:/deadline/Project/part8/app/src/main/res/drawable-v24/border.xml" value="0.1" />
+        <entry key="..\:/deadline/Project/part8/app/src/main/res/drawable-v24/button_background_blue.xml" value="0.1" />
         <entry key="..\:/deadline/Project/part8/app/src/main/res/drawable-v24/design_buttonp1.xml" value="0.26564102564102565" />
         <entry key="..\:/deadline/Project/part8/app/src/main/res/drawable-v24/ic_baseline_calendar_today_24.xml" value="0.1" />
         <entry key="..\:/deadline/Project/part8/app/src/main/res/drawable-v24/ic_side_bg.xml" value="0.1" />
-        <entry key="..\:/deadline/Project/part8/app/src/main/res/layout/activity_background.xml" value="0.1" />
+        <entry key="..\:/deadline/Project/part8/app/src/main/res/drawable/background_patientp1.xml" value="0.209375" />
+        <entry key="..\:/deadline/Project/part8/app/src/main/res/drawable/background_patientp2.xml" value="0.209375" />
+        <entry key="..\:/deadline/Project/part8/app/src/main/res/drawable/background_patientp3.xml" value="0.19635416666666666" />
+        <entry key="..\:/deadline/Project/part8/app/src/main/res/drawable/background_white.xml" value="0.19270833333333334" />
+        <entry key="..\:/deadline/Project/part8/app/src/main/res/drawable/border1.xml" value="0.1" />
+        <entry key="..\:/deadline/Project/part8/app/src/main/res/layout/activity_background.xml" value="0.264" />
         <entry key="..\:/deadline/Project/part8/app/src/main/res/layout/activity_background_doctor.xml" value="0.1" />
         <entry key="..\:/deadline/Project/part8/app/src/main/res/layout/activity_information_patient.xml" value="0.2" />
         <entry key="..\:/deadline/Project/part8/app/src/main/res/layout/activity_information_person.xml" value="0.264" />
         <entry key="..\:/deadline/Project/part8/app/src/main/res/layout/activity_login.xml" value="0.152" />
-        <entry key="..\:/deadline/Project/part8/app/src/main/res/layout/activity_main.xml" value="0.1734375" />
+        <entry key="..\:/deadline/Project/part8/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/deadline/Project/part8/app/src/main/res/layout/activity_personal_information.xml" value="0.18020833333333333" />
+        <entry key="..\:/deadline/Project/part8/app/src/main/res/layout/activity_profile_doctor.xml" value="0.136" />
+        <entry key="..\:/deadline/Project/part8/app/src/main/res/layout/activity_profile_patient.xml" value="0.1" />
         <entry key="..\:/deadline/Project/part8/app/src/main/res/layout/activity_register.xml" value="0.264" />
+        <entry key="..\:/deadline/Project/part8/app/src/main/res/layout/activity_register_patient.xml" value="0.1970310391363023" />
+        <entry key="..\:/deadline/Project/part8/app/src/main/res/layout/activity_select_patient.xml" value="0.264" />
         <entry key="..\:/deadline/Project/part8/app/src/main/res/layout/activity_splash.xml" value="0.1" />
         <entry key="..\:/deadline/Project/part8/app/src/main/res/layout/activity_splash_background.xml" value="0.1" />
         <entry key="..\:/deadline/Project/part8/app/src/main/res/layout/fragment_doctor.xml" value="0.1" />
