@@ -6,30 +6,31 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background1"
-    tools:context=".MainActivity">
+    tools:context=".SelectPatient">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_weight="1"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:baselineAligned="false">
 
         <RelativeLayout
-            android:layout_width="1dp"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:layout_marginBottom="10dp">
+            android:layout_marginBottom="10dp"
+            tools:ignore="NestedWeights,UselessParent">
 
-            <com.example.myapplication.custom.LobsterTwo_Italic
-                android:layout_width="1100px"
-                android:layout_height="300px"
+            <com.example.fer_medindex.custom.LobsterTwo_Italic
+                android:layout_width="1100dp"
+                android:layout_height="300dp"
                 android:layout_centerHorizontal="true"
-                android:layout_marginLeft="250px"
-                android:layout_marginTop="250px"
-                android:text="Hãy đăng kí form"
+                android:layout_marginStart="70dp"
+                android:layout_marginTop="100dp"
+                android:text="@string/hay_dang_ky_form"
                 android:textColor="@color/black"
-                android:textSize="40dp"
+                android:textSize="40sp"
                 android:textStyle="bold" />
-
             <RelativeLayout
                 android:layout_width="300dp"
                 android:layout_height="100dp"
@@ -41,7 +42,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:src="@drawable/background_patientp2"
-                    app:tint="#68000000"/>
+                    app:tint="#68000000"
+                    android:contentDescription="@string/todo" />
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -53,7 +55,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"
-                    android:text="ĐĂNG KÍ"
+                    android:text="@string/dang_ky"
                     android:textColor="#000"
                     android:textSize="30sp"
                     android:textStyle="bold" />
@@ -66,13 +68,15 @@
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_weight="1"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:baselineAligned="false">
 
         <RelativeLayout
-            android:layout_width="1dp"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_marginTop="40dp"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            tools:ignore="NestedWeights,UselessParent">
 
             <RelativeLayout
                 android:layout_width="300dp"
@@ -85,7 +89,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:src="@drawable/background_patientp1"
-                    app:tint="#68000000"/>
+                    app:tint="#68000000"
+                    android:contentDescription="@string/todo" />
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -96,7 +101,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center"
-                        android:text="XEM LẠI FORM "
+                        android:text="@string/xem_lai_form"
                         android:textColor="#0C0C0C"
                         android:textSize="30sp"
                         android:textStyle="bold" />

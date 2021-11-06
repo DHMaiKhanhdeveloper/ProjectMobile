@@ -1,4 +1,4 @@
-package com.example.myapplication.fragment;
+package com.example.fer_medindex.fragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,7 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.example.myapplication.R;
+import com.example.fer_medindex.R;
 
 public class DoctorFragment extends Fragment {
 

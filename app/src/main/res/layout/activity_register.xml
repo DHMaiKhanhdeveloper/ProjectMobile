@@ -28,23 +28,23 @@
 
                 <TextView
                     style="@style/viewParent.headerText.NoMode"
-                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
                     android:layout_centerVertical="true"
-                    android:text="Please enter\nyour details\n to Register"
+                    android:text="@string/please_enter_your_details_register"
                     android:textColor="@color/whiteTextColor" />
 
-<!--                <ImageView-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_alignParentTop="true"-->
-<!--                    android:layout_alignParentRight="true"-->
-<!--                    android:src="@drawable/ic_login_hero" />-->
+                <!--                <ImageView-->
+                <!--                    android:layout_width="wrap_content"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:layout_alignParentTop="true"-->
+                <!--                    android:layout_alignParentRight="true"-->
+                <!--                    android:src="@drawable/ic_login_hero" />-->
                 <com.airbnb.lottie.LottieAnimationView
                     android:id="@+id/lottie_online_doctor"
-                    android:layout_width="500px"
-                    android:layout_height="400px"
+                    android:layout_width="180dp"
+                    android:layout_height="170dp"
                     android:layout_alignParentTop="true"
-                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
                     app:lottie_autoPlay="true"
                     app:lottie_rawRes="@raw/covid_19" />
             </RelativeLayout>
@@ -70,9 +70,10 @@
                         <EditText
                             android:id="@+id/editTextName"
                             style="@style/modifiedEditText"
-                            android:hint="Name"
+                            android:hint="@string/name"
                             android:inputType="textPersonName"
-                            android:maxLines="1" />
+                            android:maxLines="1"
+                            tools:ignore="Autofill" />
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <com.google.android.material.textfield.TextInputLayout
@@ -85,7 +86,8 @@
                             style="@style/modifiedEditText"
                             android:hint="@string/login_email_hint"
                             android:inputType="textEmailAddress"
-                            android:maxLines="1" />
+                            android:maxLines="1"
+                            tools:ignore="Autofill" />
                     </com.google.android.material.textfield.TextInputLayout>
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/textInputDateofBirth"
@@ -97,7 +99,8 @@
                             style="@style/modifiedEditText"
                             android:hint="@string/date"
                             android:inputType="date"
-                            android:maxLines="1" />
+                            android:maxLines="1"
+                            tools:ignore="Autofill" />
                     </com.google.android.material.textfield.TextInputLayout>
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/textInputGender"
@@ -107,7 +110,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:id="@+id/textview_register_gender"
-                            android:text="Gender"
+                            android:text="@string/gender"
                             android:padding="6dp"
                             android:layout_marginTop="10dp" />
                         <RadioGroup
@@ -120,14 +123,14 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:id="@+id/radio_female"
-                                android:text="Female"
+                                android:text="@string/female"
                                 android:textColor="#555555"/>
                             <RadioButton
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:id="@+id/radio_male"
-                                android:text="Male"
-                                android:layout_marginLeft="30dp"
+                                android:text="@string/male"
+                                android:layout_marginStart="30dp"
                                 android:textColor="#555555"/>
                         </RadioGroup>
 
@@ -141,9 +144,10 @@
                         <EditText
                             android:id="@+id/editTextMobile"
                             style="@style/modifiedEditText"
-                            android:hint="Mobile Number"
+                            android:hint="@string/mobile_number"
                             android:inputType="phone"
-                            android:maxLines="1" />
+                            android:maxLines="1"
+                            tools:ignore="Autofill" />
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <com.google.android.material.textfield.TextInputLayout
@@ -156,7 +160,8 @@
                             style="@style/modifiedEditText"
                             android:hint="@string/login_password_hint"
                             android:inputType="textPassword"
-                            android:maxLines="1" />
+                            android:maxLines="1"
+                            tools:ignore="Autofill" />
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <com.google.android.material.textfield.TextInputLayout
@@ -169,7 +174,8 @@
                             style="@style/modifiedEditText"
                             android:hint="@string/login_confirm_password_hint"
                             android:inputType="textPassword"
-                            android:maxLines="1" />
+                            android:maxLines="1"
+                            tools:ignore="Autofill" />
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <br.com.simplepass.loading_button_lib.customViews.CircularProgressButton
@@ -177,21 +183,11 @@
                         style="@style/loginButton"
                         android:layout_gravity="center_horizontal"
                         android:layout_marginTop="@dimen/loginViewsMargin"
-                        android:text="Register"
+                        android:text="@string/register"
                         app:initialCornerAngle="27dp"
                         app:spinning_bar_color="#FFF"
                         app:spinning_bar_padding="6dp"
                         app:spinning_bar_width="4dp" />
-
-                    <TextView
-                        style="@style/parent"
-                        android:layout_marginTop="@dimen/loginViewsMargin"
-                        android:onClick="onLoginClick"
-                        android:text="Already have an account?"
-                        android:textAlignment="center"
-                        android:textColor="@color/themeColor"
-                        android:textSize="17sp"
-                        android:textStyle="bold" />
 
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -215,7 +211,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="6"
-                    android:text="Use other Methods"
+                    android:text="@string/use_other_methods"
                     android:textAlignment="center"
                     android:textColor="@color/whiteTextColor"
                     android:textSize="12sp" />
@@ -227,10 +223,6 @@
                     android:background="@color/whiteTextColor" />
 
             </LinearLayout>
-
-
-
-
         </LinearLayout>
     </ScrollView>
 
@@ -238,7 +230,7 @@
         android:layout_width="11dp"
         android:layout_height="match_parent"
         android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
         android:layout_marginTop="20dp"
         android:background="@drawable/ic_side_bg" />
 

@@ -25,15 +25,16 @@
                 android:id="@+id/tv_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Username1"
+                android:text="Người dùng 1"
                 android:textSize="16sp"/>
+
             <TextView
                 android:id="@+id/tv_address"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="address1"
-                android:textColor="@android:color/darker_gray"
-                android:textSize="14sp"/>
+                android:text="địa chỉ 1"
+                android:textColor="#546E7A"
+                android:textSize="14sp" />
             <TextView
                 android:id="@+id/tv_mobile1"
                 android:layout_width="match_parent"
@@ -70,14 +71,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:text="Username2"
+                android:text="Người dùng 2"
                 android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/tv_address2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="address2"
+                android:text="địa chỉ 2"
                 android:textColor="@android:color/darker_gray"
                 android:textSize="14sp" />
 
@@ -113,13 +114,13 @@
                 android:id="@+id/tv_name3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Username3"
+                android:text="Người dùng 3"
                 android:textSize="16sp"/>
             <TextView
                 android:id="@+id/tv_address3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="address3"
+                android:text="địa chỉ 3"
                 android:textColor="@android:color/darker_gray"
                 android:textSize="14sp"/>
             <TextView
@@ -153,13 +154,13 @@
                 android:id="@+id/tv_name4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Username4"
+                android:text="Người dùng 4"
                 android:textSize="16sp"/>
             <TextView
                 android:id="@+id/tv_address4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="address4"
+                android:text="địa chỉ 4"
                 android:textColor="@android:color/darker_gray"
                 android:textSize="14sp"/>
             <TextView

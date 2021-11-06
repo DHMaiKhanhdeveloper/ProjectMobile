@@ -29,13 +29,14 @@
         android:layout_marginRight="20dp"
         android:background="@drawable/background_white"
         android:orientation="vertical">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Account Infomation"
-            android:textStyle="bold"
-            android:textSize="40dp"
-            android:layout_centerHorizontal="true"/>
+            android:layout_centerHorizontal="true"
+            android:text="Thông tin chuẩn đoán bệnh nhân"
+            android:textSize="25dp"
+            android:textStyle="bold" />
 
         <LinearLayout
             android:id="@+id/background_form"
@@ -49,16 +50,17 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="80dp"
-            android:layout_marginTop="380dp"
+            android:layout_marginTop="360dp"
             android:background="@color/main1" />
+
         <Button
-            android:layout_width="300dp"
-            android:layout_height="70dp"
-            android:background="@drawable/background_patientp3"
+            android:layout_width="500px"
+            android:layout_height="150px"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="480dp"
-            android:text="Chỉnh sửa"
-            android:textSize="30dp"/>
+            android:layout_marginTop="460dp"
+            android:background="@drawable/background_patientp2"
+            android:text="Lưu lại" />
+
     </RelativeLayout>
 
 </RelativeLayout>

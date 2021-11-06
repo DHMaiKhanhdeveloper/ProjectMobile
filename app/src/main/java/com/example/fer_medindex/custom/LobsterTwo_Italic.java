@@ -1,4 +1,4 @@
-package com.example.myapplication.custom;
+package com.example.fer_medindex.custom;
 
 import android.content.Context;
 import android.graphics.Typeface;

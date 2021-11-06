@@ -1,4 +1,4 @@
-package com.example.myapplication;
+package com.example.fer_medindex;
 
 import androidx.appcompat.app.AppCompatActivity;
 

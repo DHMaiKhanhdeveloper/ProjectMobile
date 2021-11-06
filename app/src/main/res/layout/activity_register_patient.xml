@@ -12,15 +12,15 @@
         android:padding="10dp"
         android:layout_margin="10dp"
         android:background="@color/white">
-            <TextView
-                android:id="@+id/textView_register_head"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Personal Information"
-                android:textSize="30dp"
-                android:textAlignment="center"
-                android:textStyle="bold"
-                android:textColor="@color/main"/>
+        <TextView
+            android:id="@+id/textView_register_head"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/personal_information"
+            android:textSize="30sp"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            android:textColor="@color/main"/>
         <TextView
             android:id="@+id/textview_register_full_name"
             android:layout_width="match_parent"
@@ -28,7 +28,7 @@
             android:layout_below="@+id/textView_register_head"
             android:layout_marginTop="10dp"
             android:padding="6dp"
-            android:text="Full Name"
+            android:text="@string/full_name"
             android:textColor="#555555"
             app:helperText="Required*"
             app:helperTextTextColor="@color/teal_200"
@@ -41,10 +41,11 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/textview_register_full_name"
             android:background="@drawable/border1"
-            android:hint="Enter your full name"
+            android:hint="@string/enter_your_full_name"
             android:inputType="textPersonName"
             android:padding="6dp"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            tools:ignore="Autofill" />
         <TextView
             android:id="@+id/textview_register_dob"
             android:layout_width="match_parent"
@@ -52,7 +53,7 @@
             android:layout_below="@+id/editText_register_full_name"
             android:layout_marginTop="10dp"
             android:padding="6dp"
-            android:text="Date off Birth (dd/mm/yyyy)"
+            android:text="@string/date_off_birth_dd_mm_yyyy"
             android:textColor="#555555"
             android:textSize="16sp" />
 
@@ -63,17 +64,18 @@
             android:layout_below="@+id/textview_register_dob"
             android:background="@drawable/border1"
             android:focusable="false"
-            android:hint="Select your date of birth (dd/mm/yyyy)"
+            android:hint="@string/select_your_date_of_birth_dd_mm_yyyy"
             android:inputType="date"
             android:padding="6dp"
             android:textSize="16sp"
-            android:drawableStart="@drawable/ic_baseline_calendar_today_24"/>
+            android:drawableStart="@drawable/ic_baseline_calendar_today_24"
+            tools:ignore="Autofill" />
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/textview_register_gender"
             android:layout_below="@+id/editText_register_dob"
-            android:text="Gender"
+            android:text="@string/gender"
             android:textColor="#555555"
             android:textSize="16sp"
             android:padding="6dp"
@@ -88,15 +90,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/radio_female"
-                android:text="Female"
+                android:text="@string/female"
                 android:textSize="16sp"
                 android:textColor="#555555"/>
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/radio_male"
-                android:text="Male"
-                android:layout_marginLeft="30dp"
+                android:text="@string/male"
+                android:layout_marginStart="30dp"
                 android:textSize="16sp"
                 android:textColor="#555555"/>
         </RadioGroup>
@@ -105,7 +107,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/textview_register_mobile"
             android:layout_below="@+id/radio_group_register_gender"
-            android:text="Mobile"
+            android:text="@string/mobile"
             android:textColor="#555555"
             android:textSize="16sp"
             android:padding="6dp"
@@ -117,21 +119,23 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/textview_register_mobile"
             android:background="@drawable/border1"
-            android:hint="Enter your mobile "
+            android:hint="@string/enter_your_mobile"
             android:inputType="phone"
             android:padding="6dp"
             android:textSize="16sp"
-            android:drawableStart="@drawable/ic_baseline_phone_android_24"/>
+            android:drawableStart="@drawable/ic_baseline_phone_android_24"
+            tools:ignore="Autofill" />
+
         <TextView
+            android:id="@+id/textview_address"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/textview_address"
             android:layout_below="@+id/editText_register_mobile"
-            android:text="CMT/CCCD/Passport"
-            android:textColor="#555555"
-            android:textSize="16sp"
+            android:layout_marginTop="10dp"
             android:padding="6dp"
-            android:layout_marginTop="10dp" />
+            android:text="@string/cmt_cccd_passport"
+            android:textColor="#555555"
+            android:textSize="16sp" />
 
         <EditText
             android:id="@+id/editText_register_passport"
@@ -139,11 +143,12 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/textview_address"
             android:background="@drawable/border1"
-            android:hint="Enter your CMT/CCCD/Passport "
+            android:drawableStart="@drawable/passportp2"
+            android:hint="@string/enter_your_cmt_cccd_passport"
             android:inputType="textPassword"
             android:padding="6dp"
             android:textSize="16sp"
-            android:drawableStart="@drawable/passportp2"/>
+            tools:ignore="Autofill" />
         <TextView
             android:id="@+id/textview_register_adrress"
             android:layout_width="match_parent"
@@ -151,20 +156,21 @@
             android:layout_below="@+id/editText_register_passport"
             android:layout_marginTop="10dp"
             android:padding="6dp"
-            android:text="Address"
+            android:text="@string/address"
             android:textColor="#555555"
             android:textSize="16sp" />
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/editText_address"
-            android:hint="Enter your Address"
+            android:hint="@string/enter_your_address"
             android:inputType="textEmailAddress"
             android:textSize="16sp"
             android:padding="6dp"
             android:layout_below="@+id/textview_register_adrress"
             android:background="@drawable/border1"
-            android:drawableStart="@drawable/map"/>
+            android:drawableStart="@drawable/map"
+            tools:ignore="Autofill" />
         <TextView
             android:id="@+id/textview_register_email"
             android:layout_width="match_parent"
@@ -172,59 +178,60 @@
             android:layout_below="@+id/editText_address"
             android:layout_marginTop="10dp"
             android:padding="6dp"
-            android:text="Email"
+            android:text="@string/email"
             android:textColor="#555555"
             android:textSize="16sp" />
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/editText_register_email"
-            android:hint="Enter your email"
+            android:hint="@string/enter_your_email"
             android:inputType="textEmailAddress"
             android:textSize="16sp"
             android:padding="6dp"
             android:layout_below="@+id/textview_register_email"
             android:background="@drawable/border1"
-            android:drawableStart="@drawable/ic_baseline_email_24"/>
-            <TextView
+            android:drawableStart="@drawable/ic_baseline_email_24"
+            tools:ignore="Autofill" />
+        <TextView
 
-                android:id="@+id/health_monitoring"
-                android:layout_below="@+id/editText_register_email"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:text="Health Monitoring"
-                android:textColor="#555555"
-                android:textSize="16sp" />
+            android:id="@+id/health_monitoring"
+            android:layout_below="@+id/editText_register_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:text="@string/health_monitoring"
+            android:textColor="#555555"
+            android:textSize="16sp" />
         <CheckBox
 
             android:id="@+id/checkbox_sot"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/health_monitoring"
-            android:layout_marginLeft="20dp"
-            android:text="Sốt"
+            android:layout_marginStart="20dp"
+            android:text="@string/sot"
             android:textColor="#555555"
             android:textSize="16sp" />
         <CheckBox
             android:id="@+id/checkbox_ho"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="40dp"
+            android:layout_marginStart="40dp"
             android:layout_below="@+id/health_monitoring"
-            android:layout_toRightOf="@+id/checkbox_sot"
-            android:text="Ho"
+            android:layout_toEndOf="@+id/checkbox_sot"
+            android:text="@string/ho"
             android:textColor="#555555"
             android:textSize="16sp"
-             />
+            />
         <CheckBox
 
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="40dp"
+            android:layout_marginStart="40dp"
             android:layout_below="@+id/health_monitoring"
-            android:layout_toRightOf="@+id/checkbox_ho"
-            android:text="Khó thở"
+            android:layout_toEndOf="@+id/checkbox_ho"
+            android:text="@string/kho_tho"
             android:textColor="#555555"
             android:textSize="16sp" />
         <CheckBox
@@ -233,7 +240,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/checkbox_sot"
-            android:text="Đau người, mệt mỏi "
+            android:text="@string/dau_dau_met_moi"
             android:textColor="#555555"
             android:textSize="16sp" />
         <CheckBox
@@ -242,9 +249,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/checkbox_ho"
-            android:layout_marginLeft="10dp"
-            android:layout_toRightOf="@id/checkbox_dau_nguoi"
-            android:text="Sức khoẻ tốt "
+            android:layout_marginStart="10dp"
+            android:layout_toEndOf="@id/checkbox_dau_nguoi"
+            android:text="@string/suc_khoe_tot"
             android:textColor="#555555"
             android:textSize="16sp" />
         <Button
@@ -261,7 +268,8 @@
             android:layout_width="300dp"
             android:layout_height="100dp"
             android:layout_centerHorizontal="true"
-            android:background="@color/teal_200"/>
+            android:background="@color/teal_200"
+            android:contentDescription="@string/todo" />
         <CheckBox
             android:id="@+id/Checkbox_CheckAgainst"
             android:textStyle="bold"
@@ -270,18 +278,19 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/image_camera"
-            android:text="Tôi cam kết các thông tin khai là đúng sự thât và đồng ý với điều khoản sử dụng"/>
+            android:text="@string/cam_ket"/>
+
         <Button
+            android:id="@+id/button_register"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/button_register"
             android:layout_below="@+id/Checkbox_CheckAgainst"
-            android:textStyle="bold"
-            android:background="@drawable/background_patientp2"
             android:layout_marginLeft="70dp"
-            android:layout_marginRight="70dp"
             android:layout_marginTop="10dp"
-            android:text="Register"/>
+            android:layout_marginRight="70dp"
+            android:background="@drawable/background_patientp2"
+            android:text="@string/register"
+            android:textStyle="bold" />
         <ProgressBar
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

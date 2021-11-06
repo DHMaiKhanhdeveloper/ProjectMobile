@@ -1,14 +1,14 @@
-package com.example.myapplication;
+package com.example.fer_medindex;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class ProfilePatient extends AppCompatActivity {
+public class Register_Patient extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_profile_patient);
+        setContentView(R.layout.activity_register_patient);
     }
 }

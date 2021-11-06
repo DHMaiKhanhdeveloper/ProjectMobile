@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.myapplication"
+    package="com.example.fer_medindex"
     >
     <!-- permission -->
     <uses-permission android:name="android.permission.INTERNET" />
@@ -12,45 +12,42 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/ic_launcher1"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/ic_launcher_round1"
         android:supportsRtl="true"
         android:theme="@style/AppTheme" >
 
         <activity
-            android:name=".MainActivity"
-            android:exported="true" />
-        <activity
-            android:name=".ProfilePatient"
+            android:name="com.example.fer_medindex.ProfilePatient"
             android:exported="true"
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity
-            android:name=".ProfileDoctor"
+            android:name="com.example.fer_medindex.ProfileDoctor"
             android:exported="true"
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity
-            android:name=".SelectPatient"
+            android:name="com.example.fer_medindex.SelectPatient"
             android:exported="true"
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity
-            android:name=".Register_Patient"
+            android:name="com.example.fer_medindex.Register_Patient"
             android:exported="true"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".RegisterActivity"
+            android:name="com.example.fer_medindex.RegisterActivity"
             android:exported="true"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".LoginActivity"
+            android:name="com.example.fer_medindex.LoginActivity"
             android:exported="true"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".BackgroundDoctor"
+            android:name="com.example.fer_medindex.BackgroundDoctor"
             android:exported="true"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Background"
+            android:name="com.example.fer_medindex.Background"
             android:exported="true"
             android:theme="@style/AppTheme.NoActionBar" >
             <intent-filter>
