@@ -5,12 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center"
-    android:background="@color/login_bk_color"
+    android:background="@color/colorPrimary"
     android:focusableInTouchMode="true"
     android:gravity="center"
     tools:context=".LoginActivity">
 
     <ScrollView
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
@@ -46,33 +47,50 @@
                     app:lottie_rawRes="@raw/online_doctor" />
             </RelativeLayout>
 
-            <com.google.android.material.textfield.TextInputLayout
+            <TextView
                 android:id="@+id/textView_login_email"
-                style="@style/parent"
-                android:layout_marginTop="@dimen/loginViewsMargin">
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textView_login_head"
+                android:layout_marginTop="40dp"
+                android:padding="6dp"
+                android:text="Email"
+                android:textColor="@color/themeColor"
+                android:textSize="16sp" />
 
-                <EditText
-                    android:id="@+id/editText_login_email"
-                    style="@style/modifiedEditText"
-                    android:hint="@string/login_email_hint"
-                    android:inputType="textEmailAddress"
-                    android:maxLines="1"
-                    tools:ignore="Autofill" />
-            </com.google.android.material.textfield.TextInputLayout>
+            <EditText
+                android:id="@+id/editText_login_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textView_login_email"
+                android:background="@drawable/border2"
+                android:hint="Enter Email"
+                android:inputType="textEmailAddress"
+                android:padding="10dp"
+                android:textSize="16dp" />
 
-            <com.google.android.material.textfield.TextInputLayout
+            <TextView
                 android:id="@+id/textView_login_password"
-                style="@style/parent"
-                android:layout_marginTop="@dimen/loginViewsMargin">
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/editText_login_email"
+                android:layout_marginTop="10dp"
+                android:padding="6dp"
+                android:text="Password"
+                android:textColor="@color/themeColor"
+                android:textSize="16sp" />
 
-                <EditText
-                    android:id="@+id/editText_login_password"
-                    style="@style/modifiedEditText"
-                    android:hint="@string/login_password_hint"
-                    android:inputType="textPassword"
-                    android:maxLines="1"
-                    tools:ignore="Autofill" />
-            </com.google.android.material.textfield.TextInputLayout>
+            <EditText
+                android:id="@+id/editText_login_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textView_login_password"
+                android:background="@drawable/border2"
+                android:hint="Enter Password"
+                android:inputType="textPassword"
+                android:padding="10dp"
+                android:textSize="16dp" />
+
 
             <TextView
                 style="@style/viewParent"
@@ -80,18 +98,19 @@
                 android:layout_marginTop="10dp"
                 android:text="@string/forgot_password"
                 android:textColor="@color/primaryTextColor"
-                android:textSize="@dimen/newsMoreTextSize" />x
+                android:textSize="@dimen/newsMoreTextSize" />
 
-            <br.com.simplepass.loading_button_lib.customViews.CircularProgressButton
+            <Button
                 android:id="@+id/button_login"
-                style="@style/loginButton"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="@dimen/loginViewsMargin"
-                android:text="@string/login"
-                app:initialCornerAngle="27dp"
-                app:spinning_bar_color="#FFF"
-                app:spinning_bar_padding="6dp"
-                app:spinning_bar_width="4dp" />
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/editText_login_password"
+                android:layout_marginLeft="70dp"
+                android:layout_marginTop="50dp"
+                android:layout_marginRight="70dp"
+                android:background="@drawable/background_patientp2"
+                android:text="Login"
+                android:textColor="@color/white" />
 
             <TextView
                 style="@style/parent"
@@ -104,20 +123,16 @@
                 android:textStyle="bold"
                 tools:ignore="UsingOnClickInXml" />
 
+            <ProgressBar
+                android:id="@+id/progressBar"
+                style="?android:attr/progressBarStyleLarge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:elevation="10dp"
+                android:visibility="gone" />
 
         </LinearLayout>
     </ScrollView>
-
-
-
-    <ProgressBar
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        style="?android:attr/progressBarStyleLarge"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        android:elevation="10dp"
-        android:visibility="gone"
-        android:id="@+id/progressBar"/>
-
 </RelativeLayout>

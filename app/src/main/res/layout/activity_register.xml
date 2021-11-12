@@ -116,6 +116,7 @@
                         android:layout_below="@+id/textview_register_dob"
                         android:background="@drawable/border1"
                         android:hint="Select your date of birth"
+                        android:focusable="false"
                         android:inputType="date"
                         android:padding="6dp"
                         android:textSize="16sp" />

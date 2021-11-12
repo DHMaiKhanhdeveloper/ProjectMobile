@@ -6,11 +6,13 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.RadioButton;
@@ -24,8 +26,15 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
+import com.google.firebase.auth.FirebaseAuthUserCollisionException;
+import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserProfileChangeRequest;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.Calendar;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -57,6 +66,26 @@ public class RegisterActivity extends AppCompatActivity {
 
         radioGroupRegisterGender = findViewById(R.id.radio_group_register_gender);
         radioGroupRegisterGender.clearCheck();
+
+        //setting up DatePicker on EditText
+        editTextRegisterDoB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final Calendar calendar = Calendar.getInstance();
+                int day = calendar.get(Calendar.DAY_OF_MONTH);
+                int month = calendar.get(Calendar.MONTH);
+                int year = calendar.get(Calendar.YEAR);
+
+                //Date Picker Dialog
+                picker = new DatePickerDialog(RegisterActivity.this, new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                        editTextRegisterDoB.setText(dayOfMonth+ "/"+(month+1)+"/"+year);
+                    }
+                },year,month,day); // 3 tham số xác định
+                picker.show();
+            }
+        });
 
         Button buttonRegister = findViewById(R.id.button_register);
         buttonRegister.setOnClickListener(new View.OnClickListener() {
@@ -145,17 +174,62 @@ public class RegisterActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
-                            Toast.makeText(RegisterActivity.this,"User registered successfully, Please vertify your email",Toast.LENGTH_LONG).show();
+
                             FirebaseUser firebaseUser =auth.getCurrentUser(); // auth la bien xac thuc firebase
-                            // Gui xac nhan Email
-                            firebaseUser.sendEmailVerification();
-                            //Mo ho so nguoi dung khi dang ki thanh cong
-//                           Intent intent = new Intent(RegisterActivity.this,UserProfileActivity.class);
-//                            // Ngan nguoi dung dang ki thanh cong khong quay lai dang ki lai lan nua , nguoi dung dang ki thanh cong se chuyen den trang ho so
-//                            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+
+                            //Cập nhật hiển thi tên người dùng
+                            UserProfileChangeRequest profileChangeRequest= new UserProfileChangeRequest.Builder().setDisplayName(textFullName).build();
+                            firebaseUser.updateProfile(profileChangeRequest);
+
+                            //Nhap du lieu vao Firebase Realtime Database java object
+                            ReadWriteUserDetails writerUserDetails = new ReadWriteUserDetails(textDoB,textGender,textMobile);
+
+                            //trích xuất tham chiếu người dùng từ cơ sở dữ liệu để "đăng ký người dùng"
+                            DatabaseReference referenceProfile = FirebaseDatabase.getInstance().getReference("Registered Users");
+
+                            referenceProfile.child(firebaseUser.getUid()).setValue(writerUserDetails).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    if(task.isSuccessful()){
+                                        // Gui xac nhan Email
+                                        firebaseUser.sendEmailVerification();
+
+                                        Toast.makeText(RegisterActivity.this,"User registered successfully, Please vertify your email",Toast.LENGTH_LONG).show();
+
+                                        //Mo ho so nguoi dung khi dang ki thanh cong
+//                                  Intent intent = new Intent(RegisterActivity.this,UserProfileActivity.class);
+//                                  // Ngan nguoi dung dang ki thanh cong khong quay lai dang ki lai lan nua , nguoi dung dang ki thanh cong se chuyen den trang ho so
+//                                  intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
 //
-//                            startActivity(intent);
-//                            finish(); // dong hoat dong Register
+//                                   startActivity(intent);
+//                                      finish(); // dong hoat dong Register
+                                    } else {
+                                        Toast.makeText(RegisterActivity.this,"User registered failed, Please try again",Toast.LENGTH_LONG).show();
+                                    }
+                                    // ẩn progressBar khi người dùng đăng kí thành công hoặc thất bại
+                                    progressBar.setVisibility(View.GONE);
+                                }
+                            });
+
+
+                        } else {
+                            try{
+                                throw task.getException(); // java exception
+                            } catch (FirebaseAuthWeakPasswordException e){
+                                editTextRegiterPass.setError("Your password is too weak. Kindly use a mix of alphabets, numbers");
+                                editRegisterConfirmPass.requestFocus();
+                            } catch (FirebaseAuthInvalidCredentialsException e){ // Trường hợp ngoại lệ thông tin đăng nhập không hợp lệ của Firebase Auth
+                                editTextRegiterPass.setError("Your email is invalid or already in use. Kindly re-enter");
+                                editTextRegiterPass.requestFocus();
+                            }catch (FirebaseAuthUserCollisionException e){ // Ngoại lệ va chạm người dùng
+                                editTextRegiterPass.setError("User is already registered with this email. Use another email.");
+                                editTextRegiterPass.requestFocus();
+                            }catch (Exception e){
+                                Log.e(TAG, e.getMessage());
+                                Toast.makeText(RegisterActivity.this,e.getMessage(),Toast.LENGTH_LONG).show();
+                            }
+                            // ẩn progressBar khi người dùng đăng kí thành công hoặc thất bại
+                            progressBar.setVisibility(View.GONE);
                         }
                     }
                 });
