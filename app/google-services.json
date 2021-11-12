@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "832059582824",
+    "project_id": "fermedindex-b8ebf",
+    "storage_bucket": "fermedindex-b8ebf.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:832059582824:android:86f7cafeb8e84d45a70edd",
+        "android_client_info": {
+          "package_name": "com.example.myapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "832059582824-lkocacek69n4n0828h57u9b1eujrt31g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBMxlL9MfhRRPFW2_gYq7Uw-_XqQNF8AcU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "832059582824-lkocacek69n4n0828h57u9b1eujrt31g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
