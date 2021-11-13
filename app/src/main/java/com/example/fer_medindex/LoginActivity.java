@@ -72,7 +72,7 @@ public class LoginActivity extends AppCompatActivity {
 
         Button buttonLogin = findViewById(R.id.button_login);
         buttonLogin.setOnClickListener(v -> {
-            Intent intent = new Intent(LoginActivity.this,BackgroundDoctor.class);
+            Intent intent = new Intent(LoginActivity.this,UserProfile.class);
             startActivity(intent);
 
         });
@@ -107,12 +107,15 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
-                    Toast.makeText(LoginActivity.this, "You are logged in now", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(LoginActivity.this, "You are logged in now", Toast.LENGTH_SHORT).show();
                     //lấy phiên bản của người dùng hiện tại
                     FirebaseUser firebaseUser = authProfile.getCurrentUser();
                     //Kiểm tra xem email có được xác minh hay không trước khi người dùng có thể truy cập hồ sơ của họ
                     if(firebaseUser.isEmailVerified()){
                         Toast.makeText(LoginActivity.this, "You are logged in now", Toast.LENGTH_SHORT).show();
+                        // Bắt đầu UserProfileActivity
+                        startActivity(new Intent(LoginActivity.this, UserProfile.class));
+                        finish(); // đóng LoginActivity
                         // mở hồ sơ người dùng
                     }else {
                         firebaseUser.sendEmailVerification();
@@ -163,7 +166,7 @@ public class LoginActivity extends AppCompatActivity {
         alertDialog.show();
 
     }
-//Kiểm tra xem người dùng đã đăng nhập chưa.Nếu người dùng đã đăng nhập rồi chuyển đến  trang hồ sơ người dùng
+    //Kiểm tra xem người dùng đã đăng nhập chưa.Nếu người dùng đã đăng nhập rồi chuyển đến  trang hồ sơ người dùng
     @Override
     protected void onStart() {
         super.onStart();
@@ -172,16 +175,16 @@ public class LoginActivity extends AppCompatActivity {
             Toast.makeText(LoginActivity.this,"Already Logged In!",Toast.LENGTH_SHORT).show();
 
             // Bắt đầu UserProfileActivity
-            startActivity(new Intent(LoginActivity.this, BackgroundDoctor.class));
+            startActivity(new Intent(LoginActivity.this, UserProfile.class));
             finish(); // đóng LoginActivity
         } else {
             Toast.makeText(LoginActivity.this,"You can login now!",Toast.LENGTH_SHORT).show();
         }
     }
 
-    public void onLoginClick(View View){
-        startActivity(new Intent(this, RegisterActivity.class));
-        overridePendingTransition(R.anim.slide_in_right,R.anim.stay);
-
-    }
+//    public void onLoginClick(View View){
+//        startActivity(new Intent(this, UserProfile.class));
+//        overridePendingTransition(R.anim.slide_in_right,R.anim.stay);
+//
+//    }
 }

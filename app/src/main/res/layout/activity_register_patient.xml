@@ -35,12 +35,12 @@
             android:textSize="16sp" />
 
         <EditText
-            android:drawableStart="@drawable/ic_baseline_person_24"
             android:id="@+id/editText_register_full_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/textview_register_full_name"
             android:background="@drawable/border1"
+            android:drawableStart="@drawable/ic_baseline_person_24"
             android:hint="@string/enter_your_full_name"
             android:inputType="textPersonName"
             android:padding="6dp"
