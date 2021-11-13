@@ -196,13 +196,13 @@ public class RegisterActivity extends AppCompatActivity {
 
                                         Toast.makeText(RegisterActivity.this,"User registered successfully, Please vertify your email",Toast.LENGTH_LONG).show();
 
-                                        //Mo ho so nguoi dung khi dang ki thanh cong
-//                                  Intent intent = new Intent(RegisterActivity.this,UserProfileActivity.class);
-//                                  // Ngan nguoi dung dang ki thanh cong khong quay lai dang ki lai lan nua , nguoi dung dang ki thanh cong se chuyen den trang ho so
-//                                  intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-//
-//                                   startActivity(intent);
-//                                      finish(); // dong hoat dong Register
+                                       // Mo ho so nguoi dung khi dang ki thanh cong
+                                  Intent intent = new Intent(RegisterActivity.this,BackgroundDoctor.class);
+                                  // Ngan nguoi dung dang ki thanh cong khong quay lai dang ki lai lan nua , nguoi dung dang ki thanh cong se chuyen den trang ho so
+                                  intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+
+                                   startActivity(intent);
+                                      finish(); // dong hoat dong Register
                                     } else {
                                         Toast.makeText(RegisterActivity.this,"User registered failed, Please try again",Toast.LENGTH_LONG).show();
                                     }

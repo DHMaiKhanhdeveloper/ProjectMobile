@@ -47,11 +47,14 @@
                     app:lottie_rawRes="@raw/online_doctor" />
             </RelativeLayout>
 
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
             <TextView
                 android:id="@+id/textView_login_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/textView_login_head"
                 android:layout_marginTop="40dp"
                 android:padding="6dp"
                 android:text="Email"
@@ -80,12 +83,19 @@
                 android:textColor="@color/themeColor"
                 android:textSize="16sp" />
 
+                <ImageView
+                    android:id="@+id/imageView_show_hide_password"
+                    android:layout_width="30dp"
+                    android:layout_height="40dp"
+                    android:layout_below="@+id/textView_login_password" />
+
             <EditText
                 android:id="@+id/editText_login_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/textView_login_password"
                 android:background="@drawable/border2"
+                android:layout_marginStart="30dp"
                 android:hint="Enter Password"
                 android:inputType="textPassword"
                 android:padding="10dp"
@@ -97,8 +107,11 @@
                 android:layout_gravity="end"
                 android:layout_marginTop="10dp"
                 android:text="@string/forgot_password"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/editText_login_password"
                 android:textColor="@color/primaryTextColor"
                 android:textSize="@dimen/newsMoreTextSize" />
+
 
             <Button
                 android:id="@+id/button_login"
@@ -112,16 +125,17 @@
                 android:text="Login"
                 android:textColor="@color/white" />
 
-            <TextView
-                style="@style/parent"
-                android:layout_marginTop="@dimen/loginViewsMargin"
-                android:onClick="onLoginClick"
-                android:text="@string/new_user_register_now"
-                android:textAlignment="center"
-                android:textColor="@color/themeColor"
-                android:textSize="17sp"
-                android:textStyle="bold"
-                tools:ignore="UsingOnClickInXml" />
+                <TextView
+                    style="@style/parent"
+                    android:layout_marginTop="@dimen/loginViewsMargin"
+                    android:onClick="onLoginClick"
+                    android:text="@string/new_user_register_now"
+                    android:layout_below="@+id/button_login"
+                    android:textAlignment="center"
+                    android:textColor="@color/themeColor"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    tools:ignore="UsingOnClickInXml" />
 
             <ProgressBar
                 android:id="@+id/progressBar"
@@ -130,8 +144,10 @@
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true"
+                android:layout_gravity="center"
                 android:elevation="10dp"
                 android:visibility="gone" />
+            </RelativeLayout>
 
         </LinearLayout>
     </ScrollView>
