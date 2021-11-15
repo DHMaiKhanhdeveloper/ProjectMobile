@@ -197,7 +197,7 @@ public class RegisterActivity extends AppCompatActivity {
                                         Toast.makeText(RegisterActivity.this,"User registered successfully, Please vertify your email",Toast.LENGTH_LONG).show();
 
                                        // Mo ho so nguoi dung khi dang ki thanh cong
-                                  Intent intent = new Intent(RegisterActivity.this,UserProfile.class);
+                                  Intent intent = new Intent(RegisterActivity.this,LoginActivity.class);
                                   // Ngan nguoi dung dang ki thanh cong khong quay lai dang ki lai lan nua , nguoi dung dang ki thanh cong se chuyen den trang ho so
                                   intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
 
@@ -251,7 +251,5 @@ public class RegisterActivity extends AppCompatActivity {
         overridePendingTransition(R.anim.slide_in_left,android.R.anim.slide_out_right);
 
     }
-
-
 
 }

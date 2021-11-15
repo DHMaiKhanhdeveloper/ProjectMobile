@@ -1,9 +1,14 @@
 package com.example.fer_medindex;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
@@ -30,7 +35,7 @@ public class UserProfile extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_profile);
 
-//        getSupportActionBar().setTitle("Home");
+     getSupportActionBar().setTitle("Home");
 
         textViewWelcome = findViewById(R.id.textview_show_welcome);
         textViewFullName = findViewById(R.id.textview_show_full_name);
@@ -40,15 +45,52 @@ public class UserProfile extends AppCompatActivity {
         textViewMobile = findViewById(R.id.textview_show_mobile);
         progressBar = findViewById(R.id.progressBar);
 
+        //Set onClickListener on ImageView to Open UploadProfileActivity
+        imageView = findViewById(R.id.imageView_profile_dp);
+
+
         authProfile = FirebaseAuth.getInstance();
         FirebaseUser firebaseUser = authProfile.getCurrentUser();
 
         if(firebaseUser == null) {
             Toast.makeText(UserProfile.this, "Something went wrong! User's detail are not available at the moment", Toast.LENGTH_SHORT).show();
         } else {
+            checkEmailVerified(firebaseUser);
             progressBar.setVisibility(View.VISIBLE);
             showUserProfile(firebaseUser);
         }
+    }
+
+    private void checkEmailVerified(FirebaseUser firebaseUser) {
+        //Nếu người dùng chưa xác nhận email gửi hộp thoại cảnh báo
+        if(!firebaseUser.isEmailVerified()){
+            showAlertDialog();
+        }
+    }
+
+    private void showAlertDialog() {
+        //thiết lập trình tạo cảnh báo
+        AlertDialog.Builder builder = new AlertDialog.Builder(UserProfile.this);
+        builder.setTitle("Email not Verified");
+        builder.setMessage("Please verify your email now. You can not login without email verification. ");
+
+        //Mở ứng dụng email nếu người dùng nhấp / nhấn vào nút tiếp tục
+        builder.setPositiveButton("Continue", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                // xuất hiện trong trình khởi chạy màn hình chính
+                Intent intent = new Intent(Intent.ACTION_MAIN);
+                intent.addCategory(Intent.CATEGORY_APP_EMAIL);
+                //Gửi ứng dụng email trong cửa sổ mới và không phải trong ứng dụng của chúng tôi
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+            }
+        });
+        // Tạo AlertDialog
+        AlertDialog alertDialog = builder.create();
+        // Hiển thị AlertDialog
+        alertDialog.show();
+
     }
 
     private void showUserProfile(FirebaseUser firebaseUser) {
@@ -85,5 +127,52 @@ public class UserProfile extends AppCompatActivity {
                 progressBar.setVisibility(View.GONE);
             }
         });
+    }
+
+    //Tạo ActionBar Menu
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        //Inflate menu items
+        getMenuInflater().inflate(R.menu.menu,menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+    //Menu Item được chọn
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        // lấy id của mục menu được lưu trữ vào int id
+        int id = item.getItemId();
+        if(id == R.id.menu_refresh){
+            startActivity(getIntent());
+            finish();
+            overridePendingTransition(0,0);
+        } /*else if(id == R.id.menu_update_profile) {
+            Intent intent = new Intent(UserProfile.this,UpdateProfile.class);
+            startActivity(intent);
+        }else if (id == R.id.menu_update_email){
+            Intent intent = new Intent(UserProfile.this,UpdateEmail.class);
+            startActivity(intent);
+        }else if (id == R.id.menu_settings) {
+            Toast.makeText(UserProfile.this,"menu_setting",Toast.LENGTH_SHORT).show();
+        }else if(id == R.id.menu_change_password){
+            Intent intent = new Intent(UserProfile.this,ChangePassword.class);
+            startActivity(intent);
+        }else if(id==R.id.menu_delete_profile){
+            Intent intent = new Intent(UserProfile.this,DeleteProfile.class);
+            startActivity(intent);
+        }*/ else if(id == R.id.menu_logout){
+            authProfile.signOut();
+            Toast.makeText(UserProfile.this,"Logged Out",Toast.LENGTH_SHORT).show();
+            //quay lại hoạt động chính của Activity
+            Intent intent = new Intent(UserProfile.this,LoginActivity.class);
+
+            //Xoá ngăn sếp để ngăn người dùng quay lại hoạt động hồ sơ người dùng đã đăng xuất
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
+            finish();// đóng UserProfile
+        }else{ // Nếu ko chọn item nào
+            Toast.makeText(UserProfile.this,"Something went wrong!",Toast.LENGTH_SHORT).show();
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

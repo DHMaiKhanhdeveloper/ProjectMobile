@@ -43,11 +43,21 @@ public class LoginActivity extends AppCompatActivity {
             getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
         }
         setContentView(R.layout.activity_login);
-        editTextLoginEmail = findViewById(R.id.editText_login_email);
-        editTextLoginPassword = findViewById(R.id.editText_login_password);
+        editTextLoginEmail = findViewById(R.id.editText_login_doctor_email);
+        editTextLoginPassword = findViewById(R.id.editText_login_doctor_password);
 
         progressBar = findViewById(R.id.progressBar);
         authProfile = FirebaseAuth.getInstance();
+
+        //Reset Password
+        Button buttonForgotPassword = findViewById(R.id.button_login_forgot_password);
+        buttonForgotPassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(LoginActivity.this,"You can reset your password now!",Toast.LENGTH_LONG).show();
+                startActivity(new Intent(LoginActivity.this,ForgotPassword.class));
+            }
+        });
 
         ImageView imageViewShowHidepassword = findViewById(R.id.imageView_show_hide_password);
         imageViewShowHidepassword.setImageResource(R.drawable.ic_hide_pwd);
@@ -182,9 +192,9 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
-//    public void onLoginClick(View View){
-//        startActivity(new Intent(this, UserProfile.class));
-//        overridePendingTransition(R.anim.slide_in_right,R.anim.stay);
-//
-//    }
+    public void onLogin1Click(View View){
+        startActivity(new Intent(this, RegisterActivity.class));
+        overridePendingTransition(R.anim.slide_in_right,R.anim.stay);
+
+    }
 }
