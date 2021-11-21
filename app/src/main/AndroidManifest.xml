@@ -17,6 +17,15 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".ChangePassword"
+            android:exported="true" />
+        <activity
+            android:name=".UpdateEmail"
+            android:exported="true" />
+        <activity
+            android:name=".UpdateProfile"
+            android:exported="true" />
+        <activity
             android:name=".UploadProfile"
             android:exported="true" />
         <activity

@@ -2,14 +2,21 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/holo_blue_dark"
+    android:background="@drawable/background2"
     android:padding="20dp">
-    <TextView
-        android:id="@+id/textview_logout"
+    <com.example.fer_medindex.custom.LobsterTwo_Italic
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:textColor="@color/white"
-        android:text="@string/bottom_logout"/>
+        android:layout_height="300dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="50dp"
+        android:textAlignment="center"
+        android:text="Google Bye \nSee You Again"
+        android:textColor="@color/black"
+        android:textSize="50sp"
+        android:textStyle="bold" />
+
+
 
 
 </LinearLayout>
