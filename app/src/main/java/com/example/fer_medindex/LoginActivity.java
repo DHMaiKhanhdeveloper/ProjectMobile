@@ -31,15 +31,16 @@ import com.google.firebase.auth.FirebaseUser;
 
 
 public class LoginActivity extends AppCompatActivity {
-    private EditText editTextLoginEmail , editTextLoginPassword;
+    private EditText editTextLoginEmail, editTextLoginPassword;
     private ProgressBar progressBar;
     private FirebaseAuth authProfile;
     private static final String TAG = "LoginActivity";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //for changing status bar icon colors
-        if(Build.VERSION.SDK_INT>= Build.VERSION_CODES.M){
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
         }
         setContentView(R.layout.activity_login);
@@ -54,8 +55,8 @@ public class LoginActivity extends AppCompatActivity {
         buttonForgotPassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(LoginActivity.this,"You can reset your password now!",Toast.LENGTH_LONG).show();
-                startActivity(new Intent(LoginActivity.this,ForgotPassword.class));
+                Toast.makeText(LoginActivity.this, "You can reset your password now!", Toast.LENGTH_LONG).show();
+                startActivity(new Intent(LoginActivity.this, ForgotPassword.class));
             }
         });
 
@@ -65,24 +66,23 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //getInstance kiểm tra xem mật khẩu có hiện thị ngay từ đầu hay không
-                if(editTextLoginPassword.getTransformationMethod().equals(HideReturnsTransformationMethod.getInstance())){
+                if (editTextLoginPassword.getTransformationMethod().equals(HideReturnsTransformationMethod.getInstance())) {
                     //Nếu mật khẩu hiển thị thì hãy ẩn mật khẩu
                     editTextLoginPassword.setTransformationMethod(PasswordTransformationMethod.getInstance());
                     // thay đổi icon ẩn
                     imageViewShowHidepassword.setImageResource(R.drawable.ic_hide_pwd);
-                }else{
+                } else {
                     //mật khẩu có hiện thị
                     editTextLoginPassword.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
                     // thay đổi icon hiện
                     imageViewShowHidepassword.setImageResource(R.drawable.ic_show_pwd);
                 }
-
             }
         });
 
         Button buttonLogin = findViewById(R.id.button_login);
         buttonLogin.setOnClickListener(v -> {
-            Intent intent = new Intent(LoginActivity.this,UserProfile.class);
+            Intent intent = new Intent(LoginActivity.this, UserProfile.class);
             startActivity(intent);
 
         });
@@ -91,59 +91,58 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String textEmail = editTextLoginEmail.getText().toString();
                 String textPassword = editTextLoginPassword.getText().toString();
-                if(TextUtils.isEmpty(textEmail)){
+                if (TextUtils.isEmpty(textEmail)) {
                     Toast.makeText(LoginActivity.this, "Please Enter Your Emai", Toast.LENGTH_SHORT).show();
                     editTextLoginEmail.setError("Email is required");
                     editTextLoginEmail.requestFocus();
-                }else if(!Patterns.EMAIL_ADDRESS.matcher(textEmail).matches()){
-                    Toast.makeText(LoginActivity.this,"Please re_enter your email",Toast.LENGTH_LONG).show();
+                } else if (!Patterns.EMAIL_ADDRESS.matcher(textEmail).matches()) {
+                    Toast.makeText(LoginActivity.this, "Please re_enter your email", Toast.LENGTH_LONG).show();
                     editTextLoginEmail.setError("Valid Email is required");
                     editTextLoginEmail.requestFocus();
-                }else if(TextUtils.isEmpty(textPassword)){
+                } else if (TextUtils.isEmpty(textPassword)) {
                     Toast.makeText(LoginActivity.this, "Please Enter Your Password", Toast.LENGTH_SHORT).show();
                     editTextLoginEmail.setError("Password is required");
                     editTextLoginEmail.requestFocus();
-                }else {
+                } else {
                     progressBar.setVisibility(View.VISIBLE);
-                    loginUser(textEmail,textPassword);
+                    loginUser(textEmail, textPassword);
                 }
-
             }
         });
     }
 
     private void loginUser(String Email, String Password) {
-        authProfile.signInWithEmailAndPassword(Email,Password).addOnCompleteListener(LoginActivity.this,new OnCompleteListener<AuthResult>() {
+        authProfile.signInWithEmailAndPassword(Email, Password).addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
-                if(task.isSuccessful()){
+                if (task.isSuccessful()) {
 //                    Toast.makeText(LoginActivity.this, "You are logged in now", Toast.LENGTH_SHORT).show();
                     //lấy phiên bản của người dùng hiện tại
                     FirebaseUser firebaseUser = authProfile.getCurrentUser();
                     //Kiểm tra xem email có được xác minh hay không trước khi người dùng có thể truy cập hồ sơ của họ
-                    if(firebaseUser.isEmailVerified()){
+                    if (firebaseUser.isEmailVerified()) {
                         Toast.makeText(LoginActivity.this, "You are logged in now", Toast.LENGTH_SHORT).show();
                         // Bắt đầu UserProfileActivity
                         startActivity(new Intent(LoginActivity.this, UserProfile.class));
                         finish(); // đóng LoginActivity
                         // mở hồ sơ người dùng
-                    }else {
+                    } else {
                         firebaseUser.sendEmailVerification();
                         authProfile.signOut(); // đăng xuất
                         showAlertDialog();
                     }
-                }else {
-                    try{
+                } else {
+                    try {
                         throw task.getException();
-                    }catch (FirebaseAuthInvalidUserException e){
+                    } catch (FirebaseAuthInvalidUserException e) {
                         editTextLoginEmail.setError("User does not exists or is no longer valid.Please register again");
                         editTextLoginEmail.requestFocus();
-                    }catch (FirebaseAuthInvalidCredentialsException e){
+                    } catch (FirebaseAuthInvalidCredentialsException e) {
                         editTextLoginEmail.setError("Invalid credentials. Kindly , check and re-enter");
                         editTextLoginEmail.requestFocus();
-                    }catch (Exception e){
-                        Log.e(TAG , e.getMessage());
-                        Toast.makeText(LoginActivity.this,e.getMessage(), Toast.LENGTH_SHORT).show();
+                    } catch (Exception e) {
+                        Log.e(TAG, e.getMessage());
+                        Toast.makeText(LoginActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 }
                 progressBar.setVisibility(View.GONE);
@@ -176,25 +175,26 @@ public class LoginActivity extends AppCompatActivity {
         alertDialog.show();
 
     }
+
     //Kiểm tra xem người dùng đã đăng nhập chưa.Nếu người dùng đã đăng nhập rồi chuyển đến  trang hồ sơ người dùng
     @Override
     protected void onStart() {
         super.onStart();
         // người dùng không phải null có nghĩa là người dùng đã đăng nhập vào rồi
-        if(authProfile.getCurrentUser() !=null){
-            Toast.makeText(LoginActivity.this,"Already Logged In!",Toast.LENGTH_SHORT).show();
+        if (authProfile.getCurrentUser() != null) {
+            Toast.makeText(LoginActivity.this, "Already Logged In!", Toast.LENGTH_SHORT).show();
 
             // Bắt đầu UserProfileActivity
             startActivity(new Intent(LoginActivity.this, UserProfile.class));
             finish(); // đóng LoginActivity
         } else {
-            Toast.makeText(LoginActivity.this,"You can login now!",Toast.LENGTH_SHORT).show();
+            Toast.makeText(LoginActivity.this, "You can login now!", Toast.LENGTH_SHORT).show();
         }
     }
 
-    public void onLogin1Click(View View){
+    public void onLogin1Click(View View) {
         startActivity(new Intent(this, RegisterActivity.class));
-        overridePendingTransition(R.anim.slide_in_right,R.anim.stay);
+        overridePendingTransition(R.anim.slide_in_right, R.anim.stay);
 
     }
 }

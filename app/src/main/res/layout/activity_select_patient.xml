@@ -84,13 +84,14 @@
                 android:layout_alignParentTop="true"
                 android:layout_centerInParent="true"
                 android:background="@drawable/background_patientp1">
+
                 <ImageView
                     android:id="@+id/xem_lai_form"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:contentDescription="@string/todo"
                     android:src="@drawable/background_patientp1"
-                    app:tint="#68000000"
-                    android:contentDescription="@string/todo" />
+                    app:tint="#68000000" />
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"

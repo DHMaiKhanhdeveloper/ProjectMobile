@@ -19,18 +19,22 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 public class DoctorFragment extends Fragment {
-//    private TextView textViewWelcome , textViewFullName, textViewDoB, textViewGender , textViewMobile;
-//    private ProgressBar progressBar;
-//    private String fullName, email ,doB, gender, mobile;
-//    private ImageView imageView;
-//    private FirebaseAuth authProfile;
-//
+    private TextView textViewWelcome , textViewFullName, textViewDoB, textViewGender , textViewMobile;
+    private ProgressBar progressBar;
+    private String fullName, email ,doB, gender, mobile;
+    private ImageView imageView;
+    FirebaseAuth firebaseAuth;
+    private FirebaseUser user;
+    private ImageView avatarIv;
+
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_doctor, container, false);
 
-
+        //init firebase
+//        firebaseAuth = FirebaseAuth.getInstance();
 
     }
 

@@ -37,7 +37,7 @@ public class UserProfile extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_profile);
 
-     getSupportActionBar().setTitle("Home");
+        getSupportActionBar().setTitle("Home");
 
         textViewWelcome = findViewById(R.id.textview_show_welcome);
         textViewFullName = findViewById(R.id.textview_show_full_name);
@@ -66,6 +66,7 @@ public class UserProfile extends AppCompatActivity {
             checkEmailVerified(firebaseUser);
             progressBar.setVisibility(View.VISIBLE);
             showUserProfile(firebaseUser);
+            PatientFormInput.deleteForm();
         }
     }
 

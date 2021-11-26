@@ -51,26 +51,27 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-            <TextView
-                android:id="@+id/textView_login_email"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="40dp"
-                android:padding="6dp"
-                android:text="Email"
-                android:textColor="@color/themeColor"
-                android:textSize="16sp" />
+                <TextView
+                    android:id="@+id/textView_login_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="40dp"
+                    android:padding="6dp"
+                    android:text="Email"
+                    android:textColor="@color/themeColor"
+                    android:textSize="16sp" />
 
-            <EditText
-                android:id="@+id/editText_login_doctor_email"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/textView_login_email"
-                android:background="@drawable/border2"
-                android:hint="Enter Email"
-                android:inputType="textEmailAddress"
-                android:padding="10dp"
-                android:textSize="16dp" />
+                <EditText
+                    android:id="@+id/editText_login_doctor_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/textView_login_email"
+                    android:background="@drawable/border2"
+                    android:layout_marginRight="30dp"
+                    android:hint="Enter Email"
+                    android:inputType="textEmailAddress"
+                    android:padding="10dp"
+                    android:textSize="16dp" />
 
             <TextView
                 android:id="@+id/textView_login_password"
@@ -87,19 +88,25 @@
                     android:id="@+id/imageView_show_hide_password"
                     android:layout_width="30dp"
                     android:layout_height="40dp"
-                    android:layout_below="@+id/textView_login_password" />
+                    android:layout_below="@+id/textView_login_password"
+                    android:layout_alignParentRight="true"
+
+                    />
 
                 <EditText
                     android:id="@+id/editText_login_doctor_password"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/textView_login_password"
-                    android:layout_marginStart="30dp"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginRight="30dp"
                     android:background="@drawable/border2"
                     android:hint="Enter Password"
                     android:inputType="textPassword"
                     android:padding="10dp"
-                    android:textSize="16dp" />
+                    android:textSize="16dp">
+
+                </EditText>
 
 
                 <TextView

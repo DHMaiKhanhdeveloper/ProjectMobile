@@ -6,6 +6,8 @@ import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.database.FirebaseDatabase;
+
 public class Background extends AppCompatActivity {
 
     @Override
@@ -15,13 +17,12 @@ public class Background extends AppCompatActivity {
 
         ImageView imageViewDoctor = findViewById(R.id.imageView_doctor);
         imageViewDoctor.setOnClickListener(v -> {
-            Intent intent = new Intent(Background.this,LoginActivity.class);
+            Intent intent = new Intent(Background.this, LoginActivity.class);
             startActivity(intent);
-
         });
         ImageView imageViewPatient = findViewById(R.id.imageView_patient);
         imageViewPatient.setOnClickListener(v -> {
-            Intent intent = new Intent(Background.this,SelectPatient.class);
+            Intent intent = new Intent(Background.this, SelectPatient.class);
             startActivity(intent);
         });
 

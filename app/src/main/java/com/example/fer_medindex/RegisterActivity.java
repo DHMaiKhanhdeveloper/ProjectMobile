@@ -108,32 +108,32 @@ public class RegisterActivity extends AppCompatActivity {
                 mobileMatcher = mobilePattern.matcher(textMobile);
 
                 if(TextUtils.isEmpty(textFullName)){
-                    Toast.makeText(RegisterActivity.this,"Please enter your full name",Toast.LENGTH_LONG).show();
-                    editTextRegisterFullName.setError("Full Name is required");
+                    Toast.makeText(RegisterActivity.this,"Vui lòng nhập đầy đủ họ và tên của bạn",Toast.LENGTH_LONG).show();
+                    editTextRegisterFullName.setError("Bắt buộc nhập họ và tên");
                     editTextRegisterFullName.requestFocus();// yeu cau nhap lai
                 } else if (TextUtils.isEmpty((textEmail))){
-                    Toast.makeText(RegisterActivity.this,"Please enter your email",Toast.LENGTH_LONG).show();
+                    Toast.makeText(RegisterActivity.this,"Vui lòng nhập email của bạn",Toast.LENGTH_LONG).show();
                     editTextRegisterEmail.setError("Email is required");
                     editTextRegisterEmail.requestFocus();
                 } else if (!Patterns.EMAIL_ADDRESS.matcher(textEmail).matches()) { // khác true
-                    Toast.makeText(RegisterActivity.this,"Please re-enter your email",Toast.LENGTH_LONG).show();
-                    editTextRegisterEmail.setError("Valid Email is required");
+                    Toast.makeText(RegisterActivity.this,"Vui lòng nhập lại email của bạn",Toast.LENGTH_LONG).show();
+                    editTextRegisterEmail.setError("email không hợp lệ");
                     editTextRegisterEmail.requestFocus();
                 } else if (TextUtils.isEmpty(textDoB)) {
-                    Toast.makeText(RegisterActivity.this,"Please enter date of birth",Toast.LENGTH_LONG).show();
-                    editTextRegisterDoB.setError("Date of birth is required");
+                    Toast.makeText(RegisterActivity.this,"Vui lòng nhập ngày sinh của bạn",Toast.LENGTH_LONG).show();
+                    editTextRegisterDoB.setError("Bắt buộc nhập ngày sinh");
                     editTextRegisterDoB.requestFocus();
                 }else if (radioGroupRegisterGender.getCheckedRadioButtonId() == -1){
-                    Toast.makeText(RegisterActivity.this,"Please select your gender",Toast.LENGTH_LONG).show();
-                    radioButtonRegisterGenderSelected.setError("Gender is required");
+                    Toast.makeText(RegisterActivity.this,"Vui lòng chọn giới tính của bạn",Toast.LENGTH_LONG).show();
+                    radioButtonRegisterGenderSelected.setError("Bắt buộc phải chọn giới tính");
                     radioButtonRegisterGenderSelected.requestFocus();
                 }else if(TextUtils.isEmpty(textMobile)) {
-                    Toast.makeText(RegisterActivity.this,"Please enter your mobile ",Toast.LENGTH_LONG).show();
-                    editTextRegisterMobile.setError("Mobile is required");
+                    Toast.makeText(RegisterActivity.this,"Vui lòng nhập số điện thoại của bạn",Toast.LENGTH_LONG).show();
+                    editTextRegisterMobile.setError("Bắt buộc nhập số điện thoại");
                     editTextRegisterMobile.requestFocus();
                 }else if(textMobile.length() !=10){
-                    Toast.makeText(RegisterActivity.this,"Please re-enter your mobile ",Toast.LENGTH_LONG).show();
-                    editTextRegisterMobile.setError("Mobile shoule be 10 digits");
+                    Toast.makeText(RegisterActivity.this,"Vui lòng nhập số điện thoại của bạn ",Toast.LENGTH_LONG).show();
+                    editTextRegisterMobile.setError("Điện thoại di động phải có 10 chữ số");
                     editTextRegisterMobile.requestFocus();
                 }else if(!mobileMatcher.find()){
                     Toast.makeText(RegisterActivity.this,"Please re-enter your mobile ",Toast.LENGTH_LONG).show();
