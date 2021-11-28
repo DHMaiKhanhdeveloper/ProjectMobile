@@ -118,29 +118,31 @@ public class LoginActivity extends AppCompatActivity {
                 if (task.isSuccessful()) {
 //                    Toast.makeText(LoginActivity.this, "You are logged in now", Toast.LENGTH_SHORT).show();
                     //lấy phiên bản của người dùng hiện tại
-                    FirebaseUser firebaseUser = authProfile.getCurrentUser();
+                    FirebaseUser firebaseUser = task.getResult().getUser();
                     //Kiểm tra xem email có được xác minh hay không trước khi người dùng có thể truy cập hồ sơ của họ
+                    if (firebaseUser == null) {
+                        return;
+                    }
                     if (firebaseUser.isEmailVerified()) {
                         Toast.makeText(LoginActivity.this, "You are logged in now", Toast.LENGTH_SHORT).show();
                         // Bắt đầu UserProfileActivity
-                        startActivity(new Intent(LoginActivity.this, UserProfile.class));
+                        startActivity(new Intent(LoginActivity.this, BackgroundDoctor.class));
                         finish(); // đóng LoginActivity
+                        return;
                         // mở hồ sơ người dùng
-                    } else {
-                        firebaseUser.sendEmailVerification();
-                        authProfile.signOut(); // đăng xuất
-                        showAlertDialog();
                     }
+                    authProfile.signOut(); // đăng xuất
+                    firebaseUser.sendEmailVerification();
+                    showAlertDialog();
                 } else {
-                    try {
-                        throw task.getException();
-                    } catch (FirebaseAuthInvalidUserException e) {
+                    Exception e = task.getException();
+                    if (e instanceof FirebaseAuthInvalidUserException) {
                         editTextLoginEmail.setError("User does not exists or is no longer valid.Please register again");
                         editTextLoginEmail.requestFocus();
-                    } catch (FirebaseAuthInvalidCredentialsException e) {
+                    } else if (e instanceof FirebaseAuthInvalidCredentialsException) {
                         editTextLoginEmail.setError("Invalid credentials. Kindly , check and re-enter");
                         editTextLoginEmail.requestFocus();
-                    } catch (Exception e) {
+                    } else {
                         Log.e(TAG, e.getMessage());
                         Toast.makeText(LoginActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
                     }
@@ -185,7 +187,7 @@ public class LoginActivity extends AppCompatActivity {
             Toast.makeText(LoginActivity.this, "Already Logged In!", Toast.LENGTH_SHORT).show();
 
             // Bắt đầu UserProfileActivity
-            startActivity(new Intent(LoginActivity.this, UserProfile.class));
+            startActivity(new Intent(LoginActivity.this, BackgroundDoctor.class));
             finish(); // đóng LoginActivity
         } else {
             Toast.makeText(LoginActivity.this, "You can login now!", Toast.LENGTH_SHORT).show();

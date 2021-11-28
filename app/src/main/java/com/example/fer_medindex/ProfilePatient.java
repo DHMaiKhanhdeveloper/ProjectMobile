@@ -83,7 +83,7 @@ public class ProfilePatient extends AppCompatActivity {
                     doB = readWritePatientDetails.ngaysinh;
                     gender = readWritePatientDetails.gioitinh;
                     mobile = readWritePatientDetails.sodienthoai;
-                    CMND = readWritePatientDetails.CMND;
+                    CMND = readWritePatientDetails.cmnd;
                     address = readWritePatientDetails.diachi;
                     status = readWritePatientDetails.trangthai;
 

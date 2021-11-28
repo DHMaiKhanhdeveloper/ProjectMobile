@@ -114,9 +114,9 @@ public class UserProfile extends AppCompatActivity {
                 if(readWriteUserDetails != null){
                     fullName = firebaseUser.getDisplayName();
                     email = firebaseUser.getEmail();
-                    doB  = readWriteUserDetails.DoB;
-                    gender = readWriteUserDetails.gender;
-                    mobile = readWriteUserDetails.mobile;
+                    doB  = readWriteUserDetails.getDoB();
+                    gender = readWriteUserDetails.getGender();
+                    mobile = readWriteUserDetails.getMobile();
 
                     textViewWelcome.setText("Welcome " + fullName);
                     textViewFullName.setText(fullName);

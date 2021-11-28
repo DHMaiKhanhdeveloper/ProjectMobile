@@ -6,6 +6,8 @@ import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class Background extends AppCompatActivity {
@@ -13,6 +15,12 @@ public class Background extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (FirebaseAuth.getInstance().getCurrentUser() != null) {
+            startActivity(new Intent(Background.this, BackgroundDoctor.class));
+            finish(); // đóng LoginActivity
+            // mở hồ sơ người dùng
+            return;
+        }
         setContentView(R.layout.activity_background);
 
         ImageView imageViewDoctor = findViewById(R.id.imageView_doctor);
@@ -25,7 +33,5 @@ public class Background extends AppCompatActivity {
             Intent intent = new Intent(Background.this, SelectPatient.class);
             startActivity(intent);
         });
-
-
     }
 }

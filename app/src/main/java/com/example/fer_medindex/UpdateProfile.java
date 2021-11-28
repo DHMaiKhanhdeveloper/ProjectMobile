@@ -160,7 +160,7 @@ public class UpdateProfile extends AppCompatActivity {
 
             //Enter User Data into the Firebase Realtime Database .Set up dependencies
             // Ghi những thông tin người dùng nhập vào cơ sở dữ liệu
-            ReadWriteUserDetails writeUserDetails = new ReadWriteUserDetails(textDoB,textGender,textMobile);
+            ReadWriteUserDetails writeUserDetails = new ReadWriteUserDetails(textFullName,textDoB,textGender,textMobile);
             // Extract User reference from Database for " Registered Users"
             // Trích xuất một tham chiếu người dùng từ cơ sở dữ liệu cho người dùng đã đăng ký
             DatabaseReference referenceProfile = FirebaseDatabase.getInstance().getReference("Registered Users");
@@ -215,9 +215,9 @@ public class UpdateProfile extends AppCompatActivity {
                 ReadWriteUserDetails readUserDetails = snapshot.getValue(ReadWriteUserDetails.class);
               if( readUserDetails != null) {
                   textFullName = firebaseUser.getDisplayName();
-                  textDoB = readUserDetails.DoB;
-                  textGender = readUserDetails.gender;
-                  textMobile = readUserDetails.mobile;
+                  textDoB = readUserDetails.getDoB();
+                  textGender = readUserDetails.getGender();
+                  textMobile = readUserDetails.getMobile();
 
                   editTextUpdateName.setText(textFullName);
                   editTextUpdateDoB.setText(textDoB);

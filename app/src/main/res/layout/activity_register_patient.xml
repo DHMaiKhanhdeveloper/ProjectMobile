@@ -149,7 +149,7 @@
             android:background="@drawable/border1"
             android:drawableStart="@drawable/passportp2"
             android:hint="@string/enter_your_cmt_cccd_passport"
-            android:inputType="textPassword"
+            android:inputType="textPersonName"
             android:padding="6dp"
             android:textSize="16sp"
             tools:ignore="Autofill" />

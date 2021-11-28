@@ -41,12 +41,12 @@ import java.util.regex.Pattern;
 
 public class RegisterActivity extends AppCompatActivity {
     private EditText editTextRegisterFullName, editTextRegisterEmail,
-            editTextRegisterDoB,editTextRegisterMobile,editTextRegiterPass,editRegisterConfirmPass;
+            editTextRegisterDoB, editTextRegisterMobile, editTextRegiterPass, editRegisterConfirmPass;
     private ProgressBar progressBar;
     private RadioButton radioButtonRegisterGenderSelected;
     private RadioGroup radioGroupRegisterGender;
     private DatePickerDialog picker;
-    private static final String TAG="RegisterActivity";
+    private static final String TAG = "RegisterActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,9 +56,9 @@ public class RegisterActivity extends AppCompatActivity {
 //        getSupportActionBar().setTitle("Register");
 //        Toast.makeText(RegisterActivity.this, "You can register now",Toast.LENGTH_LONG).show();
 
-        editTextRegisterFullName =findViewById(R.id.editText_register_full_name);
-        editTextRegisterEmail =findViewById(R.id.editText_register_email);
-        editTextRegisterDoB =findViewById(R.id.editText_register_dob);
+        editTextRegisterFullName = findViewById(R.id.editText_register_full_name);
+        editTextRegisterEmail = findViewById(R.id.editText_register_email);
+        editTextRegisterDoB = findViewById(R.id.editText_register_dob);
         editTextRegisterMobile = findViewById(R.id.editText_register_mobile);
         editTextRegiterPass = findViewById(R.id.editText_register_password);
         editRegisterConfirmPass = findViewById(R.id.editText_register_confirm_password);
@@ -80,9 +80,9 @@ public class RegisterActivity extends AppCompatActivity {
                 picker = new DatePickerDialog(RegisterActivity.this, new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                        editTextRegisterDoB.setText(dayOfMonth+ "/"+(month+1)+"/"+year);
+                        editTextRegisterDoB.setText(dayOfMonth + "/" + (month + 1) + "/" + year);
                     }
-                },year,month,day); // 3 tham số xác định
+                }, year, month, day); // 3 tham số xác định
                 picker.show();
             }
         });
@@ -102,64 +102,64 @@ public class RegisterActivity extends AppCompatActivity {
                 String textConfirmPass = editRegisterConfirmPass.getText().toString();
                 String textGender;
                 //Xác thực điện thoại di động sử dụng Matcher và Pattern
-                String mobileRegex ="[0][0-9]{9}";
+                String mobileRegex = "[0][0-9]{9}";
                 Matcher mobileMatcher;
                 Pattern mobilePattern = Pattern.compile(mobileRegex); // xác định mẫu di động
                 mobileMatcher = mobilePattern.matcher(textMobile);
 
-                if(TextUtils.isEmpty(textFullName)){
-                    Toast.makeText(RegisterActivity.this,"Vui lòng nhập đầy đủ họ và tên của bạn",Toast.LENGTH_LONG).show();
+                if (TextUtils.isEmpty(textFullName)) {
+                    Toast.makeText(RegisterActivity.this, "Vui lòng nhập đầy đủ họ và tên của bạn", Toast.LENGTH_LONG).show();
                     editTextRegisterFullName.setError("Bắt buộc nhập họ và tên");
                     editTextRegisterFullName.requestFocus();// yeu cau nhap lai
-                } else if (TextUtils.isEmpty((textEmail))){
-                    Toast.makeText(RegisterActivity.this,"Vui lòng nhập email của bạn",Toast.LENGTH_LONG).show();
+                } else if (TextUtils.isEmpty((textEmail))) {
+                    Toast.makeText(RegisterActivity.this, "Vui lòng nhập email của bạn", Toast.LENGTH_LONG).show();
                     editTextRegisterEmail.setError("Email is required");
                     editTextRegisterEmail.requestFocus();
                 } else if (!Patterns.EMAIL_ADDRESS.matcher(textEmail).matches()) { // khác true
-                    Toast.makeText(RegisterActivity.this,"Vui lòng nhập lại email của bạn",Toast.LENGTH_LONG).show();
+                    Toast.makeText(RegisterActivity.this, "Vui lòng nhập lại email của bạn", Toast.LENGTH_LONG).show();
                     editTextRegisterEmail.setError("email không hợp lệ");
                     editTextRegisterEmail.requestFocus();
                 } else if (TextUtils.isEmpty(textDoB)) {
-                    Toast.makeText(RegisterActivity.this,"Vui lòng nhập ngày sinh của bạn",Toast.LENGTH_LONG).show();
+                    Toast.makeText(RegisterActivity.this, "Vui lòng nhập ngày sinh của bạn", Toast.LENGTH_LONG).show();
                     editTextRegisterDoB.setError("Bắt buộc nhập ngày sinh");
                     editTextRegisterDoB.requestFocus();
-                }else if (radioGroupRegisterGender.getCheckedRadioButtonId() == -1){
-                    Toast.makeText(RegisterActivity.this,"Vui lòng chọn giới tính của bạn",Toast.LENGTH_LONG).show();
+                } else if (radioGroupRegisterGender.getCheckedRadioButtonId() == -1) {
+                    Toast.makeText(RegisterActivity.this, "Vui lòng chọn giới tính của bạn", Toast.LENGTH_LONG).show();
                     radioButtonRegisterGenderSelected.setError("Bắt buộc phải chọn giới tính");
                     radioButtonRegisterGenderSelected.requestFocus();
-                }else if(TextUtils.isEmpty(textMobile)) {
-                    Toast.makeText(RegisterActivity.this,"Vui lòng nhập số điện thoại của bạn",Toast.LENGTH_LONG).show();
+                } else if (TextUtils.isEmpty(textMobile)) {
+                    Toast.makeText(RegisterActivity.this, "Vui lòng nhập số điện thoại của bạn", Toast.LENGTH_LONG).show();
                     editTextRegisterMobile.setError("Bắt buộc nhập số điện thoại");
                     editTextRegisterMobile.requestFocus();
-                }else if(textMobile.length() !=10){
-                    Toast.makeText(RegisterActivity.this,"Vui lòng nhập số điện thoại của bạn ",Toast.LENGTH_LONG).show();
+                } else if (textMobile.length() != 10) {
+                    Toast.makeText(RegisterActivity.this, "Vui lòng nhập số điện thoại của bạn ", Toast.LENGTH_LONG).show();
                     editTextRegisterMobile.setError("Điện thoại di động phải có 10 chữ số");
                     editTextRegisterMobile.requestFocus();
-                }else if(!mobileMatcher.find()){
-                    Toast.makeText(RegisterActivity.this,"Please re-enter your mobile ",Toast.LENGTH_LONG).show();
+                } else if (!mobileMatcher.find()) {
+                    Toast.makeText(RegisterActivity.this, "Please re-enter your mobile ", Toast.LENGTH_LONG).show();
                     editTextRegisterMobile.setError("Mobile is not valid");
                     editTextRegisterMobile.requestFocus();
-                } else if(TextUtils.isEmpty(textPassword)){
-                    Toast.makeText(RegisterActivity.this,"Please enter your password ",Toast.LENGTH_LONG).show();
+                } else if (TextUtils.isEmpty(textPassword)) {
+                    Toast.makeText(RegisterActivity.this, "Please enter your password ", Toast.LENGTH_LONG).show();
                     editTextRegiterPass.setError("Password is required");
                     editTextRegiterPass.requestFocus();
-                }else if(textPassword.length()<6){
-                    Toast.makeText(RegisterActivity.this,"Please should be at least 6 digits ",Toast.LENGTH_LONG).show();
+                } else if (textPassword.length() < 6) {
+                    Toast.makeText(RegisterActivity.this, "Please should be at least 6 digits ", Toast.LENGTH_LONG).show();
                     editTextRegiterPass.setError("Password too weak");
                     editTextRegiterPass.requestFocus();
-                }else if (TextUtils.isEmpty(textConfirmPass)){
-                    Toast.makeText(RegisterActivity.this,"Please enter your confirm password ",Toast.LENGTH_LONG).show();
+                } else if (TextUtils.isEmpty(textConfirmPass)) {
+                    Toast.makeText(RegisterActivity.this, "Please enter your confirm password ", Toast.LENGTH_LONG).show();
                     editRegisterConfirmPass.setError("Password Confirmation is required");
                     editRegisterConfirmPass.requestFocus();
-                }else if (!textPassword.equals(textConfirmPass)){
-                    Toast.makeText(RegisterActivity.this,"Please enter same password ",Toast.LENGTH_LONG).show();
+                } else if (!textPassword.equals(textConfirmPass)) {
+                    Toast.makeText(RegisterActivity.this, "Please enter same password ", Toast.LENGTH_LONG).show();
                     editRegisterConfirmPass.setError("Password Confirmation is required");
                     editTextRegiterPass.clearComposingText(); // xoa nhap lai
                     editRegisterConfirmPass.clearComposingText();
-                }else {
+                } else {
                     textGender = radioButtonRegisterGenderSelected.getText().toString();
                     progressBar.setVisibility(View.VISIBLE);
-                    registerUser(textFullName,textEmail,textDoB,textMobile,textGender,textPassword);
+                    registerUser(textFullName, textEmail, textDoB, textMobile, textGender, textPassword);
                 }
             }
         });
@@ -169,64 +169,61 @@ public class RegisterActivity extends AppCompatActivity {
     private void registerUser(String textFullName, String textEmail, String textDoB, String textMobile, String textGender, String textPassword) {
         FirebaseAuth auth = FirebaseAuth.getInstance(); //xac thuc firebase
         // tạo user profile
-        auth.createUserWithEmailAndPassword(textEmail,textPassword).addOnCompleteListener(RegisterActivity.this,
+        auth.createUserWithEmailAndPassword(textEmail, textPassword).addOnCompleteListener(RegisterActivity.this,
                 new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        if(task.isSuccessful()){
-
-                            FirebaseUser firebaseUser =auth.getCurrentUser(); // auth la bien xac thuc firebase
+                        if (task.isSuccessful()) {
+                            FirebaseUser firebaseUser = task.getResult().getUser(); // auth la bien xac thuc firebase
 
                             //Cập nhật hiển thi tên người dùng
-                            UserProfileChangeRequest profileChangeRequest= new UserProfileChangeRequest.Builder().setDisplayName(textFullName).build();
-                            firebaseUser.updateProfile(profileChangeRequest);
+//                            UserProfileChangeRequest profileChangeRequest= new UserProfileChangeRequest.Builder().setDisplayName(textFullName).build();
+//                            firebaseUser.updateProfile(profileChangeRequest);
 
                             //Nhap du lieu vao Firebase Realtime Database java object
-                            ReadWriteUserDetails writerUserDetails = new ReadWriteUserDetails(textDoB,textGender,textMobile);
+                            ReadWriteUserDetails writerUserDetails = new ReadWriteUserDetails(textFullName, textEmail, textDoB, textGender, textMobile);
 
                             //trích xuất tham chiếu người dùng từ cơ sở dữ liệu để "đăng ký người dùng"
                             DatabaseReference referenceProfile = FirebaseDatabase.getInstance().getReference("Registered Users");
 
-                            referenceProfile.child(firebaseUser.getUid()).setValue(writerUserDetails).addOnCompleteListener(new OnCompleteListener<Void>() {
-                                @Override
-                                public void onComplete(@NonNull Task<Void> task) {
-                                    if(task.isSuccessful()){
-                                        // Gui xac nhan Email
-                                        firebaseUser.sendEmailVerification();
+                            referenceProfile.child(firebaseUser.getUid()).setValue(writerUserDetails).addOnCompleteListener(task1 -> {
+                                if (task1.isSuccessful()) {
+                                    // Gui xac nhan Email
+                                    firebaseUser.sendEmailVerification();
 
-                                        Toast.makeText(RegisterActivity.this,"User registered successfully, Please vertify your email",Toast.LENGTH_LONG).show();
+                                    Toast.makeText(RegisterActivity.this, "User registered successfully, Please vertify your email", Toast.LENGTH_LONG).show();
 
-                                       // Mo ho so nguoi dung khi dang ki thanh cong
-                                  Intent intent = new Intent(RegisterActivity.this,LoginActivity.class);
-                                  // Ngan nguoi dung dang ki thanh cong khong quay lai dang ki lai lan nua , nguoi dung dang ki thanh cong se chuyen den trang ho so
-                                  intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-
-                                   startActivity(intent);
-                                      finish(); // dong hoat dong Register
-                                    } else {
-                                        Toast.makeText(RegisterActivity.this,"User registered failed, Please try again",Toast.LENGTH_LONG).show();
-                                    }
-                                    // ẩn progressBar khi người dùng đăng kí thành công hoặc thất bại
-                                    progressBar.setVisibility(View.GONE);
+                                    // Mo ho so nguoi dung khi dang ki thanh cong
+                                    Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+                                    // Ngan nguoi dung dang ki thanh cong khong quay lai dang ki lai lan nua , nguoi dung dang ki thanh cong se chuyen den trang ho so
+                                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                                    auth.signOut();
+                                    firebaseUser.reload();
+                                    startActivity(intent);
+                                    finish(); // dong hoat dong Register
+                                } else {
+                                    Toast.makeText(RegisterActivity.this, "User registered failed, Please try again", Toast.LENGTH_LONG).show();
                                 }
+                                // ẩn progressBar khi người dùng đăng kí thành công hoặc thất bại
+                                progressBar.setVisibility(View.GONE);
                             });
 
 
                         } else {
-                            try{
+                            try {
                                 throw task.getException(); // java exception
-                            } catch (FirebaseAuthWeakPasswordException e){
+                            } catch (FirebaseAuthWeakPasswordException e) {
                                 editTextRegiterPass.setError("Your password is too weak. Kindly use a mix of alphabets, numbers");
                                 editRegisterConfirmPass.requestFocus();
-                            } catch (FirebaseAuthInvalidCredentialsException e){ // Trường hợp ngoại lệ thông tin đăng nhập không hợp lệ của Firebase Auth
+                            } catch (FirebaseAuthInvalidCredentialsException e) { // Trường hợp ngoại lệ thông tin đăng nhập không hợp lệ của Firebase Auth
                                 editTextRegiterPass.setError("Your email is invalid or already in use. Kindly re-enter");
                                 editTextRegiterPass.requestFocus();
-                            }catch (FirebaseAuthUserCollisionException e){ // Ngoại lệ va chạm người dùng
+                            } catch (FirebaseAuthUserCollisionException e) { // Ngoại lệ va chạm người dùng
                                 editTextRegiterPass.setError("User is already registered with this email. Use another email.");
                                 editTextRegiterPass.requestFocus();
-                            }catch (Exception e){
+                            } catch (Exception e) {
                                 Log.e(TAG, e.getMessage());
-                                Toast.makeText(RegisterActivity.this,e.getMessage(),Toast.LENGTH_LONG).show();
+                                Toast.makeText(RegisterActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
                             }
                             // ẩn progressBar khi người dùng đăng kí thành công hoặc thất bại
                             progressBar.setVisibility(View.GONE);
@@ -246,9 +243,9 @@ public class RegisterActivity extends AppCompatActivity {
         }
     }
 
-    public void onLoginClick(View view){
-        startActivity(new Intent(this,LoginActivity.class));
-        overridePendingTransition(R.anim.slide_in_left,android.R.anim.slide_out_right);
+    public void onLoginClick(View view) {
+        startActivity(new Intent(this, LoginActivity.class));
+        overridePendingTransition(R.anim.slide_in_left, android.R.anim.slide_out_right);
 
     }
 
