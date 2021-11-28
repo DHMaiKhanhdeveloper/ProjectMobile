@@ -1,14 +1,12 @@
-package com.example.fer_medindex;
+package com.example.fer_medindex.view;
 
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
-import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -16,6 +14,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.bumptech.glide.Glide;
+import com.example.fer_medindex.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -24,6 +24,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class ProfilePatient extends AppCompatActivity {
     private TextView textViewWelcome, textViewFullName, textViewGmail, textViewDoB, textViewGender, textViewMobile,
             textViewCMND, textViewAddress, textViewStatus;
@@ -31,12 +33,15 @@ public class ProfilePatient extends AppCompatActivity {
     private String fullName, email, doB, gender, mobile, CMND, address, status;
     private ImageView imageView;
     private FirebaseAuth authProfile;
+    CircleImageView imageView3;
+    String imgHinh;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_patient);
 
+        imageView3 = findViewById(R.id.imageView3);
         textViewWelcome = findViewById(R.id.thong_tin_ben_nhan);
         textViewFullName = findViewById(R.id.textview_show_full_name);
         textViewGmail = findViewById(R.id.textview_show_email);
@@ -83,9 +88,10 @@ public class ProfilePatient extends AppCompatActivity {
                     doB = readWritePatientDetails.ngaysinh;
                     gender = readWritePatientDetails.gioitinh;
                     mobile = readWritePatientDetails.sodienthoai;
-                    CMND = readWritePatientDetails.CMND;
+                    CMND = readWritePatientDetails.cmnd;
                     address = readWritePatientDetails.diachi;
                     status = readWritePatientDetails.trangthai;
+                    imgHinh = readWritePatientDetails.getImgHinh();
 
                     textViewWelcome.setText("Chào mừng " + fullName);
                     textViewFullName.setText(fullName);
@@ -96,6 +102,10 @@ public class ProfilePatient extends AppCompatActivity {
                     textViewCMND.setText(CMND);
                     textViewAddress.setText(address);
                     textViewStatus.setText(status);
+                    Glide.with(getApplicationContext())
+                            .load(imgHinh)
+                            .error(R.mipmap.ic_launcher)
+                            .into(imageView3);
 
                 } else {
                     Toast.makeText(ProfilePatient.this, "Đã xảy ra lỗi! Thông tin chi tiết của người dùng hiện không có sẵn", Toast.LENGTH_SHORT).show();

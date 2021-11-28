@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background1"
-    tools:context=".SelectPatient">
+    tools:context=".view.SelectPatient">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="1dp"

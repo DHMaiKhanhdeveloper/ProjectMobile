@@ -1,4 +1,4 @@
-package com.example.fer_medindex;
+package com.example.fer_medindex.view;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
@@ -16,6 +16,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.fer_medindex.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -114,9 +115,9 @@ public class UserProfile extends AppCompatActivity {
                 if(readWriteUserDetails != null){
                     fullName = firebaseUser.getDisplayName();
                     email = firebaseUser.getEmail();
-                    doB  = readWriteUserDetails.DoB;
-                    gender = readWriteUserDetails.gender;
-                    mobile = readWriteUserDetails.mobile;
+                    doB  = readWriteUserDetails.getDoB();
+                    gender = readWriteUserDetails.getGender();
+                    mobile = readWriteUserDetails.getMobile();
 
                     textViewWelcome.setText("Welcome " + fullName);
                     textViewFullName.setText(fullName);

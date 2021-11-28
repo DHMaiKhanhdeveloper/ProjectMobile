@@ -5,12 +5,14 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.VIBRATE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA"/>
+
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <application
-        android:name=".FerApplication"
+        android:name=".view.FerApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher1"
         android:label="@string/app_name"
@@ -18,54 +20,54 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".ChangePassword"
+            android:name=".view.ChangePassword"
             android:exported="true" />
         <activity
-            android:name=".UpdateEmail"
+            android:name=".view.UpdateEmail"
             android:exported="true" />
         <activity
-            android:name=".UpdateProfile"
+            android:name=".view.UpdateProfile"
             android:exported="true" />
         <activity
-            android:name=".UploadProfile"
+            android:name=".view.UploadProfile"
             android:exported="true" />
         <activity
-            android:name=".ForgotPassword"
+            android:name=".view.ForgotPassword"
             android:exported="true" />
         <activity
-            android:name=".UserProfile"
+            android:name=".view.UserProfile"
             android:exported="true"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".ProfilePatient"
+            android:name=".view.ProfilePatient"
             android:exported="true"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".ProfileDoctor"
+            android:name=".view.ProfileDoctor"
             android:exported="true"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".SelectPatient"
+            android:name=".view.SelectPatient"
             android:exported="true"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Register_Patient"
+            android:name=".view.Register_Patient"
             android:exported="true"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".RegisterActivity"
+            android:name=".view.RegisterActivity"
             android:exported="true"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".view.LoginActivity"
             android:exported="true"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".BackgroundDoctor"
+            android:name=".view.BackgroundDoctor"
             android:exported="true"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Background"
+            android:name=".view.Background"
             android:exported="true"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>

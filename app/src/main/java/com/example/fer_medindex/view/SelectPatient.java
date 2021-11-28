@@ -1,12 +1,13 @@
-package com.example.fer_medindex;
+package com.example.fer_medindex.view;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ImageView;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.fer_medindex.R;
 
 public class SelectPatient extends AppCompatActivity {
     @Override

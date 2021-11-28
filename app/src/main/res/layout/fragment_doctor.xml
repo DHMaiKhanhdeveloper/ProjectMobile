@@ -21,13 +21,16 @@
                 android:contentDescription="@string/todo"
                 app:srcCompat="@drawable/top_bcakground" />
 
-            <ImageView
+            <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/imageView3"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="15dp"
                 android:contentDescription="@string/todo"
+                android:src="@drawable/ic_baseline_camera_alt_24"
+                app:civ_border_color="#FF000000"
+                app:civ_border_width="2dp"
                 app:srcCompat="@drawable/profile" />
 
             <RelativeLayout
@@ -50,11 +53,11 @@
                     android:padding="15dp">
 
                     <TextView
-                        android:id="@+id/thong_tin_ben_nhan"
+                        android:id="@+id/thong_tin_bac_si"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerHorizontal="true"
-                        android:text="thông tin bệnh nhân"
+                        android:text="thông tin bác sĩ "
                         android:textSize="25sp"
                         android:textStyle="bold" />
 
@@ -63,7 +66,7 @@
                         android:id="@+id/ic_profile"
                         android:layout_width="35dp"
                         android:layout_height="35dp"
-                        android:layout_below="@+id/thong_tin_ben_nhan"
+                        android:layout_below="@+id/thong_tin_bac_si"
                         android:layout_marginTop="20dp"
                         android:background="@drawable/people" />
 
@@ -71,7 +74,7 @@
                         android:id="@+id/textview_hoten_patient"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/thong_tin_ben_nhan"
+                        android:layout_below="@+id/thong_tin_bac_si"
                         android:layout_alignStart="@id/ic_profile"
                         android:layout_marginStart="50dp"
                         android:layout_marginTop="10dp"

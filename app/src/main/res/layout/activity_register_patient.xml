@@ -4,23 +4,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RegisterActivity"
-    android:background="@color/light_gray">
+    android:background="@color/light_gray"
+    tools:context=".view.RegisterActivity">
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10dp"
         android:layout_margin="10dp"
-        android:background="@color/white">
+        android:background="@color/white"
+        android:padding="10dp">
+
         <TextView
             android:id="@+id/textView_register_head"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/personal_information"
-            android:textSize="30sp"
             android:textAlignment="center"
-            android:textStyle="bold"
-            android:textColor="@color/main"/>
+            android:textColor="@color/main"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+
         <TextView
             android:id="@+id/textview_register_full_name"
             android:layout_width="match_parent"
@@ -30,9 +33,9 @@
             android:padding="6dp"
             android:text="@string/full_name"
             android:textColor="#555555"
+            android:textSize="16sp"
             app:helperText="Required*"
-            app:helperTextTextColor="@color/teal_200"
-            android:textSize="16sp" />
+            app:helperTextTextColor="@color/teal_200" />
 
         <EditText
             android:id="@+id/editText_register_patient_full_name"
@@ -46,6 +49,7 @@
             android:padding="6dp"
             android:textSize="16sp"
             tools:ignore="Autofill" />
+
         <TextView
             android:id="@+id/textview_register_dob"
             android:layout_width="match_parent"
@@ -106,16 +110,17 @@
                 android:textColor="#555555"
                 android:textSize="16sp" />
         </RadioGroup>
+
         <TextView
+            android:id="@+id/textview_register_mobile"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/textview_register_mobile"
             android:layout_below="@+id/radio_group_register_patient_gender"
+            android:layout_marginTop="10dp"
+            android:padding="6dp"
             android:text="@string/mobile"
             android:textColor="#555555"
-            android:textSize="16sp"
-            android:padding="6dp"
-            android:layout_marginTop="10dp" />
+            android:textSize="16sp" />
 
         <EditText
             android:id="@+id/editText_register_patient_mobile"
@@ -149,10 +154,11 @@
             android:background="@drawable/border1"
             android:drawableStart="@drawable/passportp2"
             android:hint="@string/enter_your_cmt_cccd_passport"
-            android:inputType="textPassword"
+            android:inputType="number"
             android:padding="6dp"
             android:textSize="16sp"
             tools:ignore="Autofill" />
+
         <TextView
             android:id="@+id/textview_register_adrress"
             android:layout_width="match_parent"
@@ -163,18 +169,20 @@
             android:text="@string/address"
             android:textColor="#555555"
             android:textSize="16sp" />
+
         <EditText
+            android:id="@+id/editText_register_patient_address"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/editText_register_patient_address"
-            android:hint="@string/enter_your_address"
-            android:inputType="textEmailAddress"
-            android:textSize="16sp"
-            android:padding="6dp"
             android:layout_below="@+id/textview_register_adrress"
             android:background="@drawable/border1"
             android:drawableStart="@drawable/map"
+            android:hint="@string/enter_your_address"
+            android:inputType="textEmailAddress"
+            android:padding="6dp"
+            android:textSize="16sp"
             tools:ignore="Autofill" />
+
         <TextView
             android:id="@+id/textview_register_email"
             android:layout_width="match_parent"
@@ -185,28 +193,30 @@
             android:text="@string/email"
             android:textColor="#555555"
             android:textSize="16sp" />
+
         <EditText
+            android:id="@+id/editText_register_patient_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/editText_register_patient_email"
-            android:hint="@string/enter_your_email"
-            android:inputType="textEmailAddress"
-            android:textSize="16sp"
-            android:padding="6dp"
             android:layout_below="@+id/textview_register_email"
             android:background="@drawable/border1"
             android:drawableStart="@drawable/ic_baseline_email_24"
+            android:hint="@string/enter_your_email"
+            android:inputType="textEmailAddress"
+            android:padding="6dp"
+            android:textSize="16sp"
             tools:ignore="Autofill" />
-        <TextView
 
+        <TextView
             android:id="@+id/health_monitoring"
-            android:layout_below="@+id/editText_register_patient_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/editText_register_patient_email"
             android:layout_marginBottom="10dp"
             android:text="@string/health_monitoring"
             android:textColor="#555555"
             android:textSize="16sp" />
+
         <CheckBox
 
             android:id="@+id/checkbox_sot"
@@ -217,17 +227,17 @@
             android:text="@string/sot"
             android:textColor="#555555"
             android:textSize="16sp" />
+
         <CheckBox
             android:id="@+id/checkbox_ho"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="40dp"
             android:layout_below="@+id/health_monitoring"
+            android:layout_marginStart="40dp"
             android:layout_toEndOf="@+id/checkbox_sot"
             android:text="@string/ho"
             android:textColor="#555555"
-            android:textSize="16sp"
-            />
+            android:textSize="16sp" />
 
         <CheckBox
             android:id="@+id/checkbox_kho_tho"
@@ -239,6 +249,7 @@
             android:text="@string/kho_tho"
             android:textColor="#555555"
             android:textSize="16sp" />
+
         <CheckBox
 
             android:id="@+id/checkbox_dau_nguoi"
@@ -248,6 +259,7 @@
             android:text="@string/dau_dau_met_moi"
             android:textColor="#555555"
             android:textSize="16sp" />
+
         <CheckBox
 
             android:id="@+id/checkbox_suc_khoe_tot"
@@ -259,31 +271,25 @@
             android:text="@string/suc_khoe_tot"
             android:textColor="#555555"
             android:textSize="16sp" />
-        <Button
-            android:id="@+id/button_camera"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/ic_baseline_camera_alt_24"
-            android:backgroundTint="@color/teal_200"
-            android:layout_centerHorizontal="true"
-            android:layout_below="@+id/checkbox_suc_khoe_tot"/>
+
         <ImageView
             android:id="@+id/image_camera"
-            android:layout_below="@+id/button_camera"
-            android:layout_width="300dp"
+            android:layout_width="100dp"
             android:layout_height="100dp"
+            android:layout_below="@+id/checkbox_suc_khoe_tot"
             android:layout_centerHorizontal="true"
-            android:background="@color/teal_200"
-            android:contentDescription="@string/todo" />
+            android:backgroundTint="@color/teal_200"
+            android:src="@drawable/ic_baseline_camera_alt_24" />
+
         <CheckBox
             android:id="@+id/checkbox_register_patient_CheckAgainst"
-            android:textStyle="bold"
-            android:textColor="#555555"
-            android:textSize="16sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/image_camera"
-            android:text="@string/cam_ket"/>
+            android:text="@string/cam_ket"
+            android:textColor="#555555"
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
         <Button
             android:id="@+id/button_register_patient"
@@ -298,13 +304,13 @@
             android:textStyle="bold" />
 
         <ProgressBar
+            android:id="@+id/progressBar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/progressBar"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
             android:elevation="10dp"
-            android:visibility="gone"/>
+            android:visibility="gone" />
     </RelativeLayout>
 
 </ScrollView>
