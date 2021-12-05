@@ -8,7 +8,7 @@
     android:background="@color/colorPrimary"
     android:focusableInTouchMode="true"
     android:gravity="center"
-    tools:context=".LoginActivity">
+    tools:context=".view.LoginActivity">
 
     <ScrollView
 
@@ -66,8 +66,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/textView_login_email"
+
                     android:background="@drawable/border2"
-                    android:layout_marginRight="30dp"
                     android:hint="Enter Email"
                     android:inputType="textEmailAddress"
                     android:padding="10dp"
@@ -84,23 +84,14 @@
                 android:textColor="@color/themeColor"
                 android:textSize="16sp" />
 
-                <ImageView
-                    android:id="@+id/imageView_show_hide_password"
-                    android:layout_width="30dp"
-                    android:layout_height="40dp"
-                    android:layout_below="@+id/textView_login_password"
-                    android:layout_alignParentRight="true"
-
-                    />
 
                 <EditText
                     android:id="@+id/editText_login_doctor_password"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/textView_login_password"
-                    android:layout_marginLeft="0dp"
-                    android:layout_marginRight="30dp"
                     android:background="@drawable/border2"
+                    android:drawableRight="@drawable/ic_baseline_visibility_off_24"
                     android:hint="Enter Password"
                     android:inputType="textPassword"
                     android:padding="10dp"
@@ -110,6 +101,7 @@
 
 
                 <TextView
+                    android:id="@+id/forgot_password"
                     style="@style/viewParent"
                     android:layout_below="@+id/editText_login_doctor_password"
                     android:layout_alignParentRight="true"
@@ -132,21 +124,11 @@
                     android:text="Login"
                     android:textColor="@color/white" />
 
-                <Button
-                    android:id="@+id/button_login_forgot_password"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/button_login"
-                    android:layout_marginLeft="70dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginRight="70dp"
-                    android:background="@drawable/background_patientp2"
-                    android:text="Forgot Password"
-                    android:textColor="@color/white" />
+
 
                 <TextView
                     style="@style/parent"
-                    android:layout_below="@+id/button_login_forgot_password"
+                    android:layout_below="@+id/button_login"
                     android:layout_marginTop="@dimen/loginViewsMargin"
                     android:onClick="onLogin1Click"
                     android:text="@string/new_user_register_now"

@@ -21,13 +21,16 @@
                 android:contentDescription="@string/todo"
                 app:srcCompat="@drawable/top_bcakground" />
 
-            <ImageView
+            <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/imageView3"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="15dp"
                 android:contentDescription="@string/todo"
+                android:src="@drawable/ic_baseline_camera_alt_24"
+                app:civ_border_color="#FF000000"
+                app:civ_border_width="2dp"
                 app:srcCompat="@drawable/profile" />
 
             <RelativeLayout

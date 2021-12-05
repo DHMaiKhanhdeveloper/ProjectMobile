@@ -1,18 +1,33 @@
-package com.example.fer_medindex;
+package com.example.fer_medindex.view;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.UUID;
 
 public class ReadWritePatientDetails {
-    public String fullname, patientId, ngaysinh, gioitinh, sodienthoai, cmnd, diachi, trangthai, email;
-
+    public String fullname, patientId, ngaysinh, gioitinh, sodienthoai, cmnd, diachi, trangthai, email,tinhtrangbenh;
+    public Date createTime;
+    public String imgHinh;
 
     public ReadWritePatientDetails() {
 
     }
 
-    public ReadWritePatientDetails(String textfullname,String textngaysinh, String textgioitinh, String textsodienthoai, String textcmnd, String textemail, String textdiachi, String texttrangthai) {
-        this.fullname = textfullname;
+    public String getImgHinh() {
+        return imgHinh;
+    }
+
+    public void setImgHinh(String imgHinh) {
+        this.imgHinh = imgHinh;
+    }
+
+
+
+    public ReadWritePatientDetails(String textfullname, String textngaysinh, String textgioitinh, String textsodienthoai, String textcmnd, String textemail, String textdiachi, String texttrangthai, String imgHinh) {
         this.patientId = UUID.randomUUID().toString();
+        this.fullname = textfullname;
+        this.imgHinh = imgHinh;
         this.ngaysinh = textngaysinh;
         this.gioitinh = textgioitinh;
         this.sodienthoai = textsodienthoai;
@@ -20,6 +35,21 @@ public class ReadWritePatientDetails {
         this.diachi = textdiachi;
         this.trangthai = texttrangthai;
         this.email = textemail;
+        this.createTime = new Date();
+    }
+    public ReadWritePatientDetails(String textfullname, String textngaysinh, String textgioitinh, String textsodienthoai, String textcmnd, String textemail, String textdiachi, String texttrangthai, String imgHinh,String tinhtrangbenh) {
+        this.patientId = UUID.randomUUID().toString();
+        this.fullname = textfullname;
+        this.imgHinh = imgHinh;
+        this.ngaysinh = textngaysinh;
+        this.gioitinh = textgioitinh;
+        this.sodienthoai = textsodienthoai;
+        this.cmnd = textcmnd;
+        this.diachi = textdiachi;
+        this.trangthai = texttrangthai;
+        this.email = textemail;
+        this.createTime = new Date();
+        this.tinhtrangbenh = tinhtrangbenh;
     }
     public ReadWritePatientDetails(String textfullname, String textemail) {
         this.fullname = textfullname;
@@ -96,5 +126,25 @@ public class ReadWritePatientDetails {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+    public String getTinhtrangbenh() {
+        return tinhtrangbenh;
+    }
+
+    public void setTinhtrangbenh(String tinhtrangbenh) {
+        this.tinhtrangbenh = tinhtrangbenh;
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public String getCreateTimeString() {
+        DateFormat dateFormat = new SimpleDateFormat("hh:mm dd/MM/yyyy");
+        return dateFormat.format(createTime);
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
     }
 }

@@ -1,4 +1,4 @@
-package com.example.fer_medindex;
+package com.example.fer_medindex.view;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -25,7 +25,7 @@ public class PatientFormInput {
         pref.edit().putString(PATIENT_FORM, gson.toJson(readWritePatientDetails)).apply();
     }
 
-    public static void deleteForm() {
+    public static void clearForm() {
         pref.edit().remove(PATIENT_FORM).apply();
     }
 

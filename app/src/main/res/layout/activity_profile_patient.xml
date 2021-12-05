@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ProfilePatient">
+    tools:context=".view.ProfilePatient">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -22,13 +22,16 @@
                 android:contentDescription="@string/todo"
                 app:srcCompat="@drawable/top_bcakground" />
 
-            <ImageView
+            <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/imageView3"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="15dp"
                 android:contentDescription="@string/todo"
+                android:src="@drawable/ic_baseline_camera_alt_24"
+                app:civ_border_color="#FF000000"
+                app:civ_border_width="2dp"
                 app:srcCompat="@drawable/profile" />
 
             <RelativeLayout
@@ -360,6 +363,110 @@
                         android:layout_marginTop="5dp"
                         android:hint="Loading"
                         android:textSize="18sp" />
+                    <View
+                        android:id="@+id/divider_status"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_below="@+id/textview_show_status"
+                        android:layout_marginTop="5dp"
+                        android:background="@android:color/darker_gray" />
+
+                    <ImageView
+                        android:id="@+id/ic_time"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:layout_below="@+id/divider_status"
+                        android:layout_marginTop="20dp"
+                        android:background="@drawable/icons8_time_48" />
+
+                    <TextView
+                        android:id="@+id/textview_patient_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/divider_status"
+                        android:layout_alignStart="@+id/ic_status"
+                        android:layout_marginStart="50dp"
+                        android:layout_marginTop="5dp"
+                        android:text="Thời gian"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/textview_show_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/textview_patient_time"
+                        android:layout_alignStart="@+id/ic_passport"
+                        android:layout_marginStart="50dp"
+                        android:layout_marginTop="5dp"
+                        android:hint="Loading"
+                        android:textSize="18sp" />
+                    <View
+                        android:id="@+id/divider_time"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_below="@+id/textview_show_time"
+                        android:layout_marginTop="5dp"
+                        android:background="@android:color/darker_gray" />
+                    <RelativeLayout
+                        android:visibility="gone"
+                        android:id="@+id/relativeLayout_tinhtrang"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_below="@+id/divider_time">
+                        <ImageView
+                            android:id="@+id/ic_tinh_trang_benh"
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"
+                            android:layout_marginTop="20dp"
+                            android:background="@drawable/icons_healthy" />
+
+                        <TextView
+                            android:id="@+id/textview_patient_tinh_trang_benh"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignStart="@+id/ic_tinh_trang_benh"
+                            android:layout_marginStart="50dp"
+                            android:layout_marginTop="5dp"
+                            android:text="Tình trạng bệnh nhân"
+                            android:textSize="18sp" />
+
+                        <TextView
+                            android:id="@+id/textview_show_tinhtrangbenh"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/textview_patient_tinh_trang_benh"
+                            android:layout_alignStart="@+id/ic_tinh_trang_benh"
+                            android:layout_marginStart="50dp"
+                            android:layout_marginTop="5dp"
+                            android:hint="Loading"
+                            android:textSize="18sp" />
+                    </RelativeLayout>
+                    <LinearLayout
+                        android:visibility="gone"
+                        android:id="@+id/doctor_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/relativeLayout_tinhtrang"
+                        android:orientation="vertical"
+                        android:gravity="center">
+                        <EditText
+                            android:id="@+id/editText_chinh_sua"
+                            android:layout_width="match_parent"
+                            android:layout_height="80dp"
+                            android:layout_marginTop="20dp"
+                            android:background="@drawable/border1"/>
+
+                        <Button
+                            android:id="@+id/save_btn"
+                            android:layout_width="500px"
+                            android:layout_height="150px"
+                            android:layout_below="@+id/editText_chinh_sua"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="20dp"
+                            android:background="@drawable/background_patientp2"
+                            android:text="Lưu lại" />
+                    </LinearLayout>
                 </RelativeLayout>
             </RelativeLayout>
         </RelativeLayout>

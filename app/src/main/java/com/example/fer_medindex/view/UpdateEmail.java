@@ -1,4 +1,4 @@
-package com.example.fer_medindex;
+package com.example.fer_medindex.view;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,6 +17,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.fer_medindex.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthCredential;
@@ -186,39 +187,47 @@ public class UpdateEmail extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         // lấy id của mục menu được lưu trữ vào int id
         int id = item.getItemId();
-        if(id == R.id.menu_refresh){
-            startActivity(getIntent());
-            finish();
-            overridePendingTransition(0,0);
-        } else if(id == R.id.menu_update_profile) {
-            Intent intent = new Intent(UpdateEmail.this,UpdateProfile.class);
-            startActivity(intent);
-            finish(); // không muốn có nhiều hoạt động trùng lặp đang chạy
-        }else if (id == R.id.menu_update_email){
-            Intent intent = new Intent(UpdateEmail.this,UpdateEmail.class);
-            startActivity(intent);
-            finish();
-        }/*else if (id == R.id.menu_settings) {
-            Toast.makeText(UserProfile.this,"menu_setting",Toast.LENGTH_SHORT).show();
-        }*/else if(id == R.id.menu_change_password){
-            Intent intent = new Intent(UpdateEmail.this,ChangePassword.class);
-            startActivity(intent);
-            finish();
-        }/*else if(id==R.id.menu_delete_profile){
-            Intent intent = new Intent(UserProfile.this,DeleteProfile.class);
-            startActivity(intent);
-        }*/ else if(id == R.id.menu_logout){
-            authProfile.signOut();
-            Toast.makeText(UpdateEmail.this,"Logged Out",Toast.LENGTH_SHORT).show();
-            //quay lại hoạt động chính của Activity
-            Intent intent = new Intent(UpdateEmail.this,LoginActivity.class);
+        switch (id) {
+            case R.id.menu_refresh:
+                startActivity(getIntent());
+                finish();
+                overridePendingTransition(0, 0);
+                break;
+            case R.id.menu_update_profile: {
+                Intent intent = new Intent(UpdateEmail.this, UpdateProfile.class);
+                startActivity(intent);
+                finish(); // không muốn có nhiều hoạt động trùng lặp đang chạy
 
-            //Xoá ngăn sếp để ngăn người dùng quay lại hoạt động hồ sơ người dùng đã đăng xuất
-            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-            startActivity(intent);
-            finish();// đóng UserProfile
-        }else{ // Nếu ko chọn item nào
-            Toast.makeText(UpdateEmail.this,"Something went wrong!",Toast.LENGTH_SHORT).show();
+                break;
+            }
+            case R.id.menu_update_email: {
+                Intent intent = new Intent(UpdateEmail.this, UpdateEmail.class);
+                startActivity(intent);
+                finish();
+                break;
+            }
+            case R.id.menu_change_password: {
+                Intent intent = new Intent(UpdateEmail.this, ChangePassword.class);
+                startActivity(intent);
+                finish();
+                break;
+            }
+            case R.id.menu_logout: {
+                authProfile.signOut();
+                Toast.makeText(UpdateEmail.this, "Logged Out", Toast.LENGTH_SHORT).show();
+                //quay lại hoạt động chính của Activity
+                Intent intent = new Intent(UpdateEmail.this, LoginActivity.class);
+
+                //Xoá ngăn sếp để ngăn người dùng quay lại hoạt động hồ sơ người dùng đã đăng xuất
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+                finish();// đóng UserProfile
+
+                break;
+            }
+            default:  // Nếu ko chọn item nào
+                Toast.makeText(UpdateEmail.this, "Something went wrong!", Toast.LENGTH_SHORT).show();
+                break;
         }
         return super.onOptionsItemSelected(item);
     }

@@ -1,4 +1,4 @@
-package com.example.fer_medindex;
+package com.example.fer_medindex.view;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
@@ -16,6 +16,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.fer_medindex.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -66,7 +67,7 @@ public class UserProfile extends AppCompatActivity {
             checkEmailVerified(firebaseUser);
             progressBar.setVisibility(View.VISIBLE);
             showUserProfile(firebaseUser);
-            PatientFormInput.deleteForm();
+            PatientFormInput.clearForm();
         }
     }
 

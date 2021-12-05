@@ -1,14 +1,16 @@
-package com.example.fer_medindex;
+package com.example.fer_medindex.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class ProfileDoctor extends AppCompatActivity {
+import com.example.fer_medindex.R;
+
+public class AddActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_profile_doctor);
+        setContentView(R.layout.activity_add);
     }
 }

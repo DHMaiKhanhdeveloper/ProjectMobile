@@ -1,25 +1,35 @@
-package com.example.fer_medindex;
+package com.example.fer_medindex.view;
 
 import java.util.UUID;
 
 public class ReadWriteUserDetails {
     private String fullName, DoB, gender, mobile, Email, doctorId;
+    private String imgAvatar;
+
+    public String getImgAvatar() {
+        return imgAvatar;
+    }
+
+    public void setImgAvatar(String imgAvatar) {
+        this.imgAvatar = imgAvatar;
+    }
 
     public ReadWriteUserDetails() {
 
     }
 
-    public ReadWriteUserDetails(String textfullName, String textEmail, String textDoB, String textGender, String textMobile) {
-       // this.doctorId = UUID.randomUUID().toString();
+    public ReadWriteUserDetails(String textfullName, String textEmail, String textDoB,
+                                String textGender, String textMobile,String imgHinh) {
+        // this.doctorId = UUID.randomUUID().toString();
         this.fullName = textfullName;
         this.Email = textEmail;
         this.DoB = textDoB;
         this.gender = textGender;
         this.mobile = textMobile;
+        this.imgAvatar = imgHinh;
     }
 
     public ReadWriteUserDetails(String textfullName, String textDoB, String textGender, String textMobile) {
-        this.doctorId = UUID.randomUUID().toString();
         this.fullName = textfullName;
         this.DoB = textDoB;
         this.gender = textGender;

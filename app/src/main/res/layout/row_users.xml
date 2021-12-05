@@ -3,11 +3,12 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cardView_patient"
     app:cardUseCompatPadding="true"
     app:cardCornerRadius="2dp"
     app:cardBackgroundColor="@color/white"
     app:contentPadding="3dp">
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
@@ -16,11 +17,9 @@
             android:src="@mipmap/ic_launcher_round1"
             android:layout_width="100dp"
             android:layout_height="100dp"/>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+
             <TextView
+                android:layout_toRightOf="@+id/avatarIv"
                 android:id="@+id/nameTv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -29,6 +28,8 @@
                 android:textSize="23dp"
                 android:textColor="@color/black"/>
             <TextView
+                android:layout_below="@+id/nameTv"
+                android:layout_toRightOf="@+id/avatarIv"
                 android:id="@+id/addressTv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -37,8 +38,9 @@
                 android:textSize="23dp"
                 android:textColor="@color/black"/>
 
-
             <TextView
+                android:layout_below="@+id/addressTv"
+                android:layout_toRightOf="@+id/avatarIv"
                 android:id="@+id/mobileTv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -46,9 +48,36 @@
                 android:text="Số điện thoại"
                 android:textSize="23dp"
                 android:textColor="@color/black"/>
+            <LinearLayout
+                android:layout_below="@+id/mobileTv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <Button
+                    android:id="@+id/btn_edit"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:text="Edit"
+                    android:textAllCaps="false"
+                    android:textSize="20sp"
+                    android:layout_marginLeft="12dp"
+                    android:background="@drawable/background_patientp2"/>
+                <Button
+                    android:id="@+id/btn_delete"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:text="Delete"
+                    android:textAllCaps="false"
+                    android:textSize="20sp"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/background_patientp2"/>
 
-        </LinearLayout>
-    </LinearLayout>
+            </LinearLayout>
+
+
+    </RelativeLayout>
 
 
 </androidx.cardview.widget.CardView>

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UpdateEmail"
+    tools:context=".view.UpdateEmail"
     android:background="@color/light_gray">
     <LinearLayout
         android:layout_width="match_parent"

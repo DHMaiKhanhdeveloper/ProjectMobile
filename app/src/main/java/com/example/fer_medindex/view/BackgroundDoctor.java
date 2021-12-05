@@ -1,4 +1,4 @@
-package com.example.fer_medindex;
+package com.example.fer_medindex.view;
 
 import android.annotation.SuppressLint;
 import android.content.DialogInterface;
@@ -12,12 +12,11 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import com.example.fer_medindex.R;
 import com.example.fer_medindex.fragment.DoctorFragment;
 import com.example.fer_medindex.fragment.ListPatientFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
-
-import java.util.Objects;
 
 public class BackgroundDoctor extends AppCompatActivity {
     private BottomNavigationView bottomNav;

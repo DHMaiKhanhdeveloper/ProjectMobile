@@ -1,4 +1,4 @@
-package com.example.fer_medindex;
+package com.example.fer_medindex.view;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -9,18 +9,19 @@ import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
 import android.util.Patterns;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.fer_medindex.fragment.DoctorFragment;
+import com.example.fer_medindex.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -35,6 +36,7 @@ public class LoginActivity extends AppCompatActivity {
     private ProgressBar progressBar;
     private FirebaseAuth authProfile;
     private static final String TAG = "LoginActivity";
+    boolean passwordVisible;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,8 +53,8 @@ public class LoginActivity extends AppCompatActivity {
         authProfile = FirebaseAuth.getInstance();
 
         //Reset Password
-        Button buttonForgotPassword = findViewById(R.id.button_login_forgot_password);
-        buttonForgotPassword.setOnClickListener(new View.OnClickListener() {
+        TextView textforgotpass = findViewById(R.id.forgot_password);
+        textforgotpass.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast.makeText(LoginActivity.this, "You can reset your password now!", Toast.LENGTH_LONG).show();
@@ -60,26 +62,46 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        ImageView imageViewShowHidepassword = findViewById(R.id.imageView_show_hide_password);
-        imageViewShowHidepassword.setImageResource(R.drawable.ic_hide_pwd);
-        imageViewShowHidepassword.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //getInstance kiểm tra xem mật khẩu có hiện thị ngay từ đầu hay không
-                if (editTextLoginPassword.getTransformationMethod().equals(HideReturnsTransformationMethod.getInstance())) {
-                    //Nếu mật khẩu hiển thị thì hãy ẩn mật khẩu
-                    editTextLoginPassword.setTransformationMethod(PasswordTransformationMethod.getInstance());
-                    // thay đổi icon ẩn
-                    imageViewShowHidepassword.setImageResource(R.drawable.ic_hide_pwd);
-                } else {
-                    //mật khẩu có hiện thị
-                    editTextLoginPassword.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
-                    // thay đổi icon hiện
-                    imageViewShowHidepassword.setImageResource(R.drawable.ic_show_pwd);
+//        ImageView imageViewShowHidepassword = findViewById(R.id.imageView_show_hide_password);
+//        imageViewShowHidepassword.setImageResource(R.drawable.ic_hide_pwd);
+//        imageViewShowHidepassword.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                //getInstance kiểm tra xem mật khẩu có hiện thị ngay từ đầu hay không
+//                if (editTextLoginPassword.getTransformationMethod().equals(HideReturnsTransformationMethod.getInstance())) {
+//                    //Nếu mật khẩu hiển thị thì hãy ẩn mật khẩu
+//                    editTextLoginPassword.setTransformationMethod(PasswordTransformationMethod.getInstance());
+//                    // thay đổi icon ẩn
+//                    imageViewShowHidepassword.setImageResource(R.drawable.ic_hide_pwd);
+//                } else {
+//                    //mật khẩu có hiện thị
+//                    editTextLoginPassword.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+//                    // thay đổi icon hiện
+//                    imageViewShowHidepassword.setImageResource(R.drawable.ic_show_pwd);
+//                }
+//            }
+//        });
+        editTextLoginPassword.setOnTouchListener((v, event) -> {
+            final int Right = 2;
+            if (event.getAction() == MotionEvent.ACTION_UP) {
+                if (event.getRawX() >= editTextLoginPassword.getRight() - editTextLoginPassword.getCompoundDrawables()[Right].getBounds().width()) {
+                    int selection = editTextLoginPassword.getSelectionEnd();
+                    if (passwordVisible) {
+                        editTextLoginPassword.setCompoundDrawablesRelativeWithIntrinsicBounds(0, 0, R.drawable.ic_baseline_visibility_off_24, 0);
+                        editTextLoginPassword.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                        passwordVisible = false;
+                    } else {
+                        editTextLoginPassword.setCompoundDrawablesRelativeWithIntrinsicBounds(0, 0, R.drawable.ic_baseline_visibility_24, 0);
+                        editTextLoginPassword.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                        passwordVisible = true;
+                    }
+                    editTextLoginPassword.setSelection(selection);
+                    return true;
                 }
             }
-        });
 
+            return false;
+        });
         Button buttonLogin = findViewById(R.id.button_login);
         buttonLogin.setOnClickListener(v -> {
             Intent intent = new Intent(LoginActivity.this, UserProfile.class);
@@ -127,6 +149,7 @@ public class LoginActivity extends AppCompatActivity {
                         Toast.makeText(LoginActivity.this, "You are logged in now", Toast.LENGTH_SHORT).show();
                         // Bắt đầu UserProfileActivity
                         startActivity(new Intent(LoginActivity.this, BackgroundDoctor.class));
+                        PatientFormInput.clearForm();
                         finish(); // đóng LoginActivity
                         return;
                         // mở hồ sơ người dùng
